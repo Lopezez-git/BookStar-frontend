@@ -2,7 +2,7 @@
   <div class="background-pattern"></div>
 
   <div class="form-box">
-    <h1 class="titulo">Cadastro</h1>
+    <h1 class="titulo">Crie sua conta</h1>
 
     <form (ngSubmit)="cadastrarUsuario()">
 
@@ -31,16 +31,17 @@
       <div class="checkbox-field">
         <input type="checkbox" id="termos" name="termos" [(ngModel)]="aceitouTermos" />
         <label for="termos">
-          Ao se inscrever, você aceita os Termos de Uso do Starbook e reconhece que sua
+          Ao se inscrever, você aceita os
+          Termos de Uso do Starbook e reconhece que sua
           <a href="#">Política de Privacidade</a> se aplica.
         </label>
       </div>
 
-      <button type="submit">Cadastrar</button>
+      <button type="submit">Entrar com email</button>
 
       <div class="login-link">
-        Ou se já tiver uma conta,
-        <a routerLink="/login">faça login</a>
+        Ou se já tiver uma conta:
+        <a routerLink="/login">Entrar</a>
       </div>
 
     </form>

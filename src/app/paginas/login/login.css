@@ -1,210 +1,113 @@
-/* ========================================
-   CONFIGURAÇÕES GLOBAIS
-   ======================================== */
-
-/* Reset e configuração base do HTML e Body */
-html, body {
+html,
+body {
+  width: 100%;
   height: 100%;
   margin: 0;
-  font-family: 'Georgia', serif; /* Fonte serifada elegante */
-  background-color: #E8E4D9; /* Bege claro do Figma */
-  overflow: hidden; /* Remove scroll */
+  padding: 0;
+  background-color: #EEEEDD;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
-/* ========================================
-   BACKGROUND COM PADRÃO DE ESTRELAS
-   ======================================== */
 
-/* Camada de fundo com padrão repetido */
-.background-pattern {
-  position: fixed; /* Fixo na tela */
-  inset: 0; /* Cobre toda a tela (top, right, bottom, left: 0) */
-  background-image: url('/background-star.png'); /* Imagem de estrelas */
-  background-size: contain; /* Mantém proporção da imagem */
-  background-repeat: repeat; /* Repete o padrão */
-  background-position: center; /* Centraliza */
-  opacity: 0.15; /* Transparência sutil */
-  z-index: 0; /* Fica atrás de tudo */
-  pointer-events: none; /* Permite cliques através dele */
+.background-stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/background-star.png');
+  /* IMPORTANTE: caminho correto */
+  background-repeat: repeat;
+  background-size: 500px;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* ========================================
-   CONTAINER PRINCIPAL
-   ======================================== */
 
-/* Main centraliza o formulário na tela */
-main {
-  position: fixed; /* Fixo na viewport */
-  inset: 0; /* Ocupa toda a tela */
-  display: flex; /* Flexbox para centralização */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  z-index: 1; /* Fica acima do background */
-  padding: 20px; /* Espaçamento nas bordas */
-  box-sizing: border-box; /* Inclui padding na largura total */
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 215px;           /* distância abaixo do header */
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  height: 100vh;
 }
 
-/* ========================================
-   CAIXA DO FORMULÁRIO (QUADRADO VERDE)
-   ======================================== */
+.login-box {
+  background-color: #092A23;
+  /* mesma cor do cadastro */
+  width: 480px;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
 
-/* Container do formulário de login */
-.form-box {
-  background-color: #1B2F26; /* Verde escuro do Figma */
-  padding: 50px 55px; /* Espaçamento interno generoso */
-  border-radius: 10px; /* Cantos arredondados */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); /* Sombra profunda */
-  width: 100%; /* Largura responsiva */
-  max-width: 420px; /* Largura máxima */
-  position: relative; /* Contexto de posicionamento */
-  margin: auto; /* Centralização extra */
 }
 
-/* ========================================
-   TÍTULO
-   ======================================== */
-
-/* Título "Entrar" no topo do formulário */
-.titulo {
-  color: #EEEEDD; /* Bege claro */
-  text-align: center; /* Centralizado */
-  font-size: 32px; /* Tamanho grande */
-  font-weight: 400; /* Peso normal (não negrito) */
-  margin: 0 0 35px 0; /* Espaçamento inferior */
-  letter-spacing: 0.5px; /* Espaçamento entre letras */
+.login-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+/* Garante que largura 100% seja REAL, sem somar padding */
+* {
+  box-sizing: border-box;
 }
 
-/* ========================================
-   CAMPOS DE INPUT
-   ======================================== */
-
-/* Container de cada campo (email, senha) */
-.form-field {
-  margin-bottom: 18px; /* Espaçamento entre campos */
+/* Inputs do login */
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;    
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #113C33;
+  color: white;
+  font-size: 15px;
+  display: block;
 }
 
-/* Estilo dos inputs (email e senha) */
-.form-field input {
-  width: 100%; /* Largura total do container */
-  padding: 14px 16px; /* Espaçamento interno */
-  background-color: transparent; /* Fundo transparente */
-  border: none; /* Remove todas as bordas */
-  border-bottom: 1px solid rgba(238, 238, 221, 0.3); /* Apenas borda inferior */
-  border-radius: 0; /* Remove arredondamento */
-  color: #EEEEDD; /* Cor do texto */
-  font-size: 15px; /* Tamanho da fonte */
-  font-family: 'Georgia', serif; /* Mantém a fonte serifada */
-  transition: border-color 0.3s ease; /* Transição suave na borda */
-  box-sizing: border-box; /* Inclui padding na largura */
+
+.checkbox-termos {
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #ddd;
 }
 
-/* Placeholder dos inputs */
-.form-field input::placeholder {
-  color: rgba(238, 238, 221, 0.5); /* Bege claro semi-transparente */
-  font-size: 14px; /* Levemente menor */
+.checkbox-termos a {
+  color: #a0c4ff;
 }
 
-/* Estado de foco dos inputs */
-.form-field input:focus {
-  outline: none; /* Remove outline padrão do browser */
-  border-bottom-color: rgba(238, 238, 221, 0.6); /* Borda mais visível */
-  background-color: transparent; /* Mantém fundo transparente */
+.login-box button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 13px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  background-color: #F2F1D1;
+  cursor: pointer;
 }
 
-/* ========================================
-   CHECKBOX E TERMOS
-   ======================================== */
-
-/* Container do checkbox com label */
-.checkbox-field {
-  display: flex; /* Layout flexível */
-  align-items: flex-start; /* Alinha no topo */
-  gap: 10px; /* Espaço entre checkbox e texto */
-  margin: 25px 0 30px 0; /* Espaçamentos superior e inferior */
+.login-box button:disabled {
+  background-color: #c5c5a3;
+  cursor: not-allowed;
 }
 
-/* Estilo do checkbox */
-.checkbox-field input[type="checkbox"] {
-  margin-top: 2px; /* Pequeno ajuste de alinhamento */
-  width: 18px; /* Largura do checkbox */
-  height: 18px; /* Altura do checkbox */
-  min-width: 18px; /* Largura mínima (evita encolher) */
-  cursor: pointer; /* Cursor de pointer */
-  accent-color: #EEEEDD; /* Cor do checkbox marcado */
+.cadastro-link {
+  margin-top: 15px;
+  font-size: 13px;
 }
 
-/* Texto da label dos termos */
-.checkbox-field label {
-  color: rgba(238, 238, 221, 0.85); /* Bege claro levemente transparente */
-  font-size: 11px; /* Fonte pequena */
-  line-height: 1.5; /* Altura da linha para legibilidade */
-  font-family: 'Georgia', serif; /* Mantém a fonte */
-}
-
-/* Links dentro da label (Política de Privacidade) */
-.checkbox-field a {
-  color: #EEEEDD; /* Cor bege claro */
-  text-decoration: underline; /* Sublinhado */
-}
-
-/* Hover nos links */
-.checkbox-field a:hover {
-  color: #DDD9CB; /* Cor mais escura no hover */
-}
-
-/* ========================================
-   BOTÃO DE SUBMIT
-   ======================================== */
-
-/* Botão "Entrar" */
-button {
-  width: 100%; /* Largura total */
-  padding: 15px; /* Espaçamento interno */
-  background-color: #EEEEDD; /* Bege claro (contraste com fundo verde) */
-  color: #1B2F26; /* Verde escuro (texto) */
-  border: none; /* Remove borda */
-  border-radius: 8px; /* Cantos arredondados */
-  font-size: 16px; /* Tamanho da fonte */
-  font-weight: 600; /* Peso semi-negrito */
-  font-family: 'Georgia', serif; /* Mantém a fonte */
-  cursor: pointer; /* Cursor de pointer */
-  transition: all 0.3s ease; /* Transição suave em todas as propriedades */
-  margin-top: 10px; /* Espaço acima do botão */
-}
-
-/* Estado hover do botão */
-button:hover {
-  background-color: #DDD9CB; /* Cor mais escura */
-  transform: translateY(-1px); /* Leve elevação */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra */
-}
-
-/* Estado active (clique) do botão */
-button:active {
-  transform: translateY(0); /* Remove elevação */
-}
-
-/* ========================================
-   LINK DE CADASTRO
-   ======================================== */
-
-/* Container do texto "Ou se não tiver uma conta" */
-.login-link {
-  color: rgba(238, 238, 221, 0.85); /* Bege claro semi-transparente */
-  text-align: center; /* Centralizado */
-  margin-top: 25px; /* Espaço acima */
-  font-size: 13px; /* Fonte pequena */
-  font-family: 'Georgia', serif; /* Mantém a fonte */
-}
-
-/* Link "cadastre-se" */
-.login-link a {
-  color: #EEEEDD; /* Bege claro */
-  text-decoration: underline; /* Sublinhado */
-  font-weight: 600; /* Semi-negrito */
-}
-
-/* Hover no link de cadastro */
-.login-link a:hover {
-  color: #DDD9CB; /* Cor mais escura no hover */
+.cadastro-link a {
+  color: #a0c4ff;
 }
