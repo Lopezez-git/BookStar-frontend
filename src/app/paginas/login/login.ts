@@ -16,7 +16,7 @@ export class LoginComponent {
   email = '';
   senha = '';
 
-  aceitouTermos = false; // 🔹 AGORA EXISTE!
+  aceitouTermos = false; 
 
   constructor(private http: HttpClient, private router: Router) {}
 

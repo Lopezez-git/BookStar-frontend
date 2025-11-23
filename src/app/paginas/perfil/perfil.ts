@@ -64,7 +64,7 @@ export class Perfil implements OnInit {
         console.log("Resposta da api: " , res.imagem_perfil);
         this.nomeUsuario = res.nome;
         this.perfilImagem = res.imagem_perfil 
-        ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}` : '';
+        ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}` : '/Default_pfp.jpg';
         this.seguidores = res.seguidores;
         this.seguindo = res.seguindo;
         this.livros = res.livros || this.livros;

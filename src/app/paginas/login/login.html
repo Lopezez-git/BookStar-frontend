@@ -1,57 +1,35 @@
-<main>
-  <!-- Background com padrão de estrelas -->
-  <div class="background-pattern"></div>
+<div class="background-stars"></div>
 
-  <!-- Caixa do formulário de login -->
-  <div class="form-box">
-    <!-- Título da página -->
-    <h1 class="titulo">Entrar</h1>
+<main class="container-login">
+  <div class="login-box">
 
-    <!-- Formulário Angular com ngSubmit -->
+    <h2>Entrar</h2>
+
     <form (ngSubmit)="fazerLogin()">
-      
-      <!-- Campo de Email -->
-      <div class="form-field">
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          placeholder="Endereço de email" 
-          [(ngModel)]="email" 
-          required 
-        />
-      </div>
 
-      <!-- Campo de Senha -->
-      <div class="form-field">
-        <input 
-          type="password" 
-          id="senha" 
-          name="senha" 
-          placeholder="Senha" 
-          [(ngModel)]="senha" 
-          required 
-        />
-      </div>
+      <input type="email" name="email" [(ngModel)]="email"
+        placeholder="Endereço de email" required />
 
-      <!-- Checkbox de termos e política -->
-      <div class="checkbox-field">
-        <input type="checkbox" id="termos" name="termos" required />
-        <label for="termos">
-          Ao se inscrever, você aceita os Termos de Uso do Starbook e reconhece que sua
+      <input type="password" name="senha" [(ngModel)]="senha"
+        placeholder="Senha" required />
+
+      <div class="checkbox-termos">
+        <input type="checkbox" name="aceite" [(ngModel)]="aceitouTermos" required />
+        <span>
+          Ao se inscrever, você aceita os
+          <a href="#">Termos de Uso</a> do Starback
+          e reconhece que nossa
           <a href="#">Política de Privacidade</a> se aplica.
-        </label>
+        </span>
       </div>
 
-      <!-- Botão de submit -->
-      <button type="submit">Entrar</button>
+      <button type="submit" [disabled]="!aceitouTermos">Entrar</button>
 
-      <!-- Link para cadastro -->
-      <div class="login-link">
-        Ou se não tiver uma conta,
-        <a routerLink="/cadastro">cadastre-se</a>
-      </div>
+      <p class="cadastro-link">
+        Se ainda não tem conta: <a routerLink="/cadastro">Cadastre-se</a>
+      </p>
 
     </form>
+
   </div>
 </main>

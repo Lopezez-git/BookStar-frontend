@@ -251,7 +251,7 @@
   "foto_autor": "/autores/autor28.jpg",
   "autor": "Adam Silvera",
   "biografiaAutor": "Adam Silvera é um escritor americano nascido em 1990, no Bronx, Nova York. Conhecido por seus romances jovem-adultos que abordam temas como LGBTQ+, mortalidade, identidade e amor, ele conquistou milhões de leitores globalmente. Silvera é celebrado por sua habilidade em criar histórias emocionalmente impactantes com personagens diversos e autênticos. Seus livros, incluindo Os Dois Morrem no Final e What If It's Us, frequentemente exploram a experiência de jovens queer enfrentando questões profundas sobre vida e morte. Ele também trabalhou na indústria editorial antes de se dedicar completamente à escrita.",
-  "capa_livro": "/livros/livro28.png"
+  "capa_livro": "/livros/livro28.jpg"
 },
 
 {
@@ -261,7 +261,7 @@
   "foto_autor": "/autores/autor29.jpg",
   "autor": "Ruth Ware",
   "biografiaAutor": "Ruth Ware é uma escritora britânica nascida em 1977, conhecida por seus thrillers psicológicos atmosféricos. Antes de se tornar autora em tempo integral, trabalhou como garçonete, livraria e professora. Suas obras, incluindo A Mulher na Cabine 10 e The Turn of the Key, são best-sellers internacionais que combinam suspense clássico com narrativas contemporâneas. Ware é frequentemente comparada a Agatha Christie por sua habilidade em criar mistérios intricados com reviravoltas surpreendentes e ambientações claustrofóbicas que intensificam a tensão.",
-  "capa_livro": "/livros/livro29.png"
+  "capa_livro": "/livros/livro29.jpg"
 },
 {
   "id": "30",
@@ -270,7 +270,7 @@
   "foto_autor": "/autores/autor30.jpg",
   "autor": "Jodi Picoult",
   "biografiaAutor": "Jodi Picoult é uma escritora americana nascida em 1966, conhecida por seus romances que exploram dilemas morais complexos e questões sociais contemporâneas. Formada em Princeton, ela publicou mais de 25 romances, muitos dos quais se tornaram best-sellers do New York Times. Picoult é reconhecida por sua extensa pesquisa, narrativas multiperspectivas e habilidade em apresentar todos os lados de questões controversas. Seus livros frequentemente abordam temas como ética, justiça, família e escolhas impossíveis, provocando reflexões profundas nos leitores.",
-  "capa_livro": "/livros/livro30.png"
+  "capa_livro": "/livros/livro30.jpg"
 },
 {
   "id": "31",
@@ -279,7 +279,7 @@
   "foto_autor": "/autores/autor31.jpg",
   "autor": "Keith Donohue",
   "biografiaAutor": "Keith Donohue é um escritor americano conhecido por seus romances que misturam realismo com elementos fantásticos e sobrenaturais. Seu estilo único combina prosa lírica com narrativas envolventes que exploram temas de identidade, memória e os mistérios da infância. Donohue tem talento especial para criar atmosferas inquietantes e personagens complexos, particularmente crianças que enfrentam circunstâncias extraordinárias. Seus livros incluem The Stolen Child e Angels of Destruction, todos celebrados pela crítica.",
-  "capa_livro": "/livros/livro31.png"
+  "capa_livro": "/livros/livro31.jpg"
 },
 {
   "id": "32",
@@ -288,7 +288,7 @@
   "foto_autor": "/autores/autor32.jpg",
   "autor": "Autor de True Crime",
   "biografiaAutor": "Especializado em thrillers inspirados em casos criminais reais, este autor combina pesquisa meticulosa com narrativa envolvente para criar histórias que prendem e perturbam. Com atenção aos detalhes forenses e psicológicos, suas obras exploram os aspectos mais sombrios da natureza humana e as falhas dos sistemas de justiça.",
-  "capa_livro": "/livros/livro32.png"
+  "capa_livro": "/livros/livro32.jpg"
 },
 {
   "id": "33",
@@ -297,7 +297,7 @@
   "foto_autor": "/autores/autor33.jpg",
   "autor": "Alice Feeney",
   "biografiaAutor": "Alice Feeney é uma escritora e jornalista britânica, ex-produtora da BBC. Seus thrillers psicológicos são conhecidos por reviravoltas impressionantes, narrativas não confiáveis e finais que deixam os leitores sem fôlego. Feeney tem uma habilidade única para construir suspense gradualmente enquanto planta pistas sutis que só fazem sentido em retrospecto. Suas obras, incluindo Sometimes I Lie e His & Hers, foram best-sellers internacionais traduzidos para mais de 25 idiomas. Ela é mestre em criar atmosferas claustrofóbicas e personagens moralmente ambíguos.",
-  "capa_livro": "/livros/livro33.png"
+  "capa_livro": "/livros/livro33.jpg"
 },
 {
   "id": "34",
@@ -306,7 +306,7 @@
   "foto_autor": "/autores/autor34.jpg",
   "autor": "John Douglas e Mark Olshaker",
   "biografiaAutor": "John Douglas é um ex-agente especial do FBI que serviu por 25 anos e é considerado o pioneiro da perfilação criminal moderna. Ele foi chefe da Unidade de Ciências Comportamentais e entrevistou dezenas de serial killers para desenvolver técnicas investigativas revolucionárias. Mark Olshaker é um autor e cineasta premiado que colabora com Douglas. Juntos, escreveram vários best-sellers sobre crime e investigação. O trabalho de Douglas inspirou filmes, séries (incluindo Mindhunter da Netflix) e mudou fundamentalmente a aplicação da lei nos EUA.",
-  "capa_livro": "/livros/livro34.png"
+  "capa_livro": "/livros/livro34.jpg"
 },
 {
   "id": "35",
@@ -315,7 +315,7 @@
   "foto_autor": "/autores/autor35.jpg",
   "autor": "Autor de Suspense Familiar",
   "biografiaAutor": "Especializado em thrillers que exploram dinâmicas familiares complexas e dilemas morais impossíveis, este autor cria narrativas que questionam lealdades e testam os limites do amor. Com personagens profundamente humanos e situações que parecem não ter respostas certas, suas obras provocam reflexões sobre família, moralidade e as escolhas que nos definem.",
-  "capa_livro": "/livros/livro35.png"
+  "capa_livro": "/livros/livro35.jpg"
 },
 {
   "id": "36",
@@ -324,6 +324,6 @@
   "foto_autor": "/autores/autor36.jpg",
   "autor": "John Green",
   "biografiaAutor": "John Green é um escritor americano nascido em 1977, autor de best-sellers jovem-adultos aclamados pela crítica. Formado em Literatura Inglesa e Estudos Religiosos, ele trabalhou como capelão em um hospital infantil antes de se tornar escritor em tempo integral. Suas obras, incluindo A Culpa é das Estrelas e Cidades de Papel, venderam milhões de cópias e foram adaptadas para o cinema. Green é conhecido por criar histórias emocionalmente ressonantes que exploram existencialismo, mortalidade e o que significa ser humano. Ele também é YouTuber educacional premiado.",
-  "capa_livro": "/livros/livro36.png"
+  "capa_livro": "/livros/livro36.jpg"
 }
 ]
