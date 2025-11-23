@@ -1,42 +1,45 @@
 <main>
   <div class="background-pattern"></div>
 
-  <!--Não precisa de header aqui, já tem um componente header{./src/app/header/header.html}-->
-
   <div class="form-box">
-    <h1 class="titulo">Crie sua conta</h1>
+    <h1 class="titulo">Cadastro</h1>
 
     <form (ngSubmit)="cadastrarUsuario()">
       <div class="form-field">
-        <input type="text" id="nome" name="nome" placeholder="Nome" [(ngModel)]="nome" required />
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Endereço de email" 
+          [(ngModel)]="email" 
+          required 
+        />
       </div>
 
       <div class="form-field">
-        <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required />
-      </div>
-
-      <div class="form-field">
-        <input type="email" id="email" name="email" placeholder="Endereço de email" [(ngModel)]="email" required />
-      </div>
-
-      <div class="form-field">
-        <input type="password" id="senha" name="senha" placeholder="Senha" [(ngModel)]="senha" required />
+        <input 
+          type="password" 
+          id="senha" 
+          name="senha" 
+          placeholder="Senha" 
+          [(ngModel)]="senha" 
+          required 
+        />
       </div>
 
       <div class="checkbox-field">
         <input type="checkbox" id="termos" name="termos" required />
         <label for="termos">
-          Ao se inscrever, você aceita os
-          Termos de Uso do Starbook e reconhece que sua
+          Ao se inscrever, você aceita os Termos de Uso do Starbook e reconhece que sua
           <a href="#">Política de Privacidade</a> se aplica.
         </label>
       </div>
 
-      <button type="submit">Entrar com email</button>
+      <button type="submit">Entrar</button>
 
       <div class="login-link">
-        Ou se já tiver uma conta:
-        <a routerLink="/login">Entrar</a>
+        Ou se não tiver uma conta,
+        <a routerLink="/cadastro">cadastre-se</a>
       </div>
     </form>
   </div>

@@ -1,44 +1,56 @@
 <main>
-  <div class="login-box">
-    <img src="logo.png" alt="Logo Starback" class="logo">
-    <p class="tituloE">Entrar</p>
+  <!-- Background com padrão de estrelas -->
+  <div class="background-pattern"></div>
 
-    <!-- 🔥 formulário Angular -->
+  <!-- Caixa do formulário de login -->
+  <div class="form-box">
+    <!-- Título da página -->
+    <h1 class="titulo">Entrar</h1>
+
+    <!-- Formulário Angular com ngSubmit -->
     <form (ngSubmit)="fazerLogin()">
-      <p>
-        Email:
-        <input
-          type="email"
-          name="email"
-          [(ngModel)]="email"
-          placeholder="Digite seu email"
-          required
+      
+      <!-- Campo de Email -->
+      <div class="form-field">
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="Endereço de email" 
+          [(ngModel)]="email" 
+          required 
         />
-      </p>
+      </div>
 
-      <p>
-        Senha:
-        <input
-          type="password"
-          name="senha"
-          [(ngModel)]="senha"
-          placeholder="Digite sua senha"
-          required
+      <!-- Campo de Senha -->
+      <div class="form-field">
+        <input 
+          type="password" 
+          id="senha" 
+          name="senha" 
+          placeholder="Senha" 
+          [(ngModel)]="senha" 
+          required 
         />
-      </p>
+      </div>
 
-      <label class="termos">
-        <input type="checkbox" name="aceite" required />
-        Ao se inscrever, você aceita os Termos de Uso do Starback e reconhece
-        que nossa Política de Privacidade se aplica.
-      </label>
+      <!-- Checkbox de termos e política -->
+      <div class="checkbox-field">
+        <input type="checkbox" id="termos" name="termos" required />
+        <label for="termos">
+          Ao se inscrever, você aceita os Termos de Uso do Starbook e reconhece que sua
+          <a href="#">Política de Privacidade</a> se aplica.
+        </label>
+      </div>
 
+      <!-- Botão de submit -->
       <button type="submit">Entrar</button>
 
-      <p class="link-cadastro">
-        Se ainda não tem conta
-        <a routerLink="/cadastro">Cadastre-se</a>
-      </p>
+      <!-- Link para cadastro -->
+      <div class="login-link">
+        Ou se não tiver uma conta,
+        <a routerLink="/cadastro">cadastre-se</a>
+      </div>
     </form>
   </div>
 </main>
