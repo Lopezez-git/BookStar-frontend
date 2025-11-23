@@ -15,15 +15,27 @@ export class Cadastro {
 
   nome = '';
   username = '';
+  cpf = '';
   email = '';
   senha = '';
+
+  // 🔥 VARIÁVEL QUE FALTAVA!
+  aceitouTermos = false;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   cadastrarUsuario() {
+
+    // 🔥 VALIDAÇÃO ANTES DE ENVIAR
+    if (!this.aceitouTermos) {
+      alert('Você precisa aceitar os Termos de Uso antes de continuar.');
+      return; // impede o cadastro
+    }
+
     const novoUsuario = {
       nome: this.nome,
       username: this.username,
+      cpf: this.cpf,
       email: this.email,
       senha: this.senha
     };
@@ -32,7 +44,7 @@ export class Cadastro {
       next: (res) => {
         console.log('Usuário cadastrado com sucesso:', res);
         alert('Cadastro realizado com sucesso!');
-        this.router.navigate(['/login']); // 🔥 redireciona após cadastrar
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         console.error('Erro ao cadastrar usuário:', err);

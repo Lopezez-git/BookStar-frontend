@@ -1,8 +1,36 @@
+
+:host {
+  position: relative;
+  display: block;
+  background-color: #EEEEDD;
+  min-height: 100vh;
+  z-index: 0;
+}
+
+:host::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/background-star.png');
+  background-repeat: repeat;
+  background-size: auto;
+  opacity: 0.15;
+  /* ajuste para mais forte (0.3) ou mais fraco (0.1) */
+  z-index: -1;
+}
+
+
 .livros-container {
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  /* efeito fosco */
+  margin: 35px auto 0 auto;
+  /* empurra para baixo */
 }
+
 
 .livros-container h1 {
   text-align: center;
@@ -21,7 +49,7 @@
   background-color: #f9f9f9;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
   display: flex;
   justify-content: center;

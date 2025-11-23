@@ -1,44 +1,35 @@
-<main>
+<div class="background-stars"></div>
+
+<main class="container-login">
   <div class="login-box">
-    <img src="logo.png" alt="Logo Starback" class="logo">
-    <p class="tituloE">Entrar</p>
 
-    <!-- 🔥 formulário Angular -->
+    <h2>Entrar</h2>
+
     <form (ngSubmit)="fazerLogin()">
-      <p>
-        Email:
-        <input
-          type="email"
-          name="email"
-          [(ngModel)]="email"
-          placeholder="Digite seu email"
-          required
-        />
+
+      <input type="email" name="email" [(ngModel)]="email"
+        placeholder="Endereço de email" required />
+
+      <input type="password" name="senha" [(ngModel)]="senha"
+        placeholder="Senha" required />
+
+      <div class="checkbox-termos">
+        <input type="checkbox" name="aceite" [(ngModel)]="aceitouTermos" required />
+        <span>
+          Ao se inscrever, você aceita os
+          <a href="#">Termos de Uso</a> do Starback
+          e reconhece que nossa
+          <a href="#">Política de Privacidade</a> se aplica.
+        </span>
+      </div>
+
+      <button type="submit" [disabled]="!aceitouTermos">Entrar</button>
+
+      <p class="cadastro-link">
+        Se ainda não tem conta: <a routerLink="/cadastro">Cadastre-se</a>
       </p>
 
-      <p>
-        Senha:
-        <input
-          type="password"
-          name="senha"
-          [(ngModel)]="senha"
-          placeholder="Digite sua senha"
-          required
-        />
-      </p>
-
-      <label class="termos">
-        <input type="checkbox" name="aceite" required />
-        Ao se inscrever, você aceita os Termos de Uso do Starback e reconhece
-        que nossa Política de Privacidade se aplica.
-      </label>
-
-      <button type="submit">Entrar</button>
-
-      <p class="link-cadastro">
-        Se ainda não tem conta
-        <a routerLink="/cadastro">Cadastre-se</a>
-      </p>
     </form>
+
   </div>
 </main>

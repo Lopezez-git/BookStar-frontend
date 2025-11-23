@@ -1,19 +1,24 @@
 <main>
   <div class="background-pattern"></div>
 
-  <!--Não precisa de header aqui, já tem um componente header{./src/app/header/header.html}-->
-
   <div class="form-box">
     <h1 class="titulo">Crie sua conta</h1>
 
     <form (ngSubmit)="cadastrarUsuario()">
-      <div class="form-field">
-        <input type="text" id="nome" name="nome" placeholder="Nome" [(ngModel)]="nome" required />
-      </div>
 
       <div class="form-field">
         <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required />
       </div>
+
+      <div class="form-field">
+        <input type="text" id="nome" name="nome" placeholder="Nome" [(ngModel)]="nome" required />
+      </div>
+
+      <!-- 🔹 CPF ADICIONADO AQUI -->
+      <div class="form-field">
+        <input type="text" id="cpf" name="cpf" placeholder="CPF" [(ngModel)]="cpf" required />
+      </div>
+      <!-- 🔹 FIM DO CAMPO CPF -->
 
       <div class="form-field">
         <input type="email" id="email" name="email" placeholder="Endereço de email" [(ngModel)]="email" required />
@@ -24,7 +29,7 @@
       </div>
 
       <div class="checkbox-field">
-        <input type="checkbox" id="termos" name="termos" required />
+        <input type="checkbox" id="termos" name="termos" [(ngModel)]="aceitouTermos" />
         <label for="termos">
           Ao se inscrever, você aceita os
           Termos de Uso do Starbook e reconhece que sua
@@ -38,6 +43,7 @@
         Ou se já tiver uma conta:
         <a routerLink="/login">Entrar</a>
       </div>
+
     </form>
   </div>
 </main>

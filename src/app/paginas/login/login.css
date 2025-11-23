@@ -1,119 +1,120 @@
-/* Reset básico */
-* {
+html,
+body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Corpo da página */
-html, body {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
   background-color: #EEEEDD;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
-/* Centralização */
-main {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Caixa de login */
-.login-box {
-  background-color: #1a3a3a;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  width: 320px;
-  text-align: center;
-}
-
-/* Logo */
-.logo {
-  width: 80px;
-  margin-bottom: 20px;
-}
-
-/* Título */
-.tituloE {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-/* Campos */
-.login-box p {
-  margin-bottom: 15px;
-  font-size: 14px;
-  text-align: left;
-}
-
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background-color: #264d4d;
-  color: #ffffff;
-  font-size: 14px;
-}
-
-/* Checkbox e texto */
-.termos {
-  font-size: 12px;
-  text-align: left;
-  margin: 15px 0;
-  display: block;
-}
-
-/* Botão */
-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #3cb371;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #2e8b57;
-}
-
-/* Link de cadastro */
-.link-cadastro {
-  margin-top: 20px;
-  font-size: 13px;
-}
-
-.link-cadastro a {
-  color: #3cb371;
-  text-decoration: none;
-}
-
-.link-cadastro a:hover {
-  text-decoration: underline;
-}
 
 .background-stars {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/background-star.png'); /* imagem de fundo */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-image: url('/background-star.png');
+  /* IMPORTANTE: caminho correto */
+  background-repeat: repeat;
+  background-size: 500px;
   opacity: 0.1;
   z-index: 0;
+  pointer-events: none;
+}
+
+
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 215px;           /* distância abaixo do header */
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+}
+
+.login-box {
+  background-color: #092A23;
+  /* mesma cor do cadastro */
+  width: 480px;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+
+  margin: 0
+  /* Centraliza o card no meio da página */
+
+  gap: 20px;
+  /* Espaço entre cada elemento */
+
+
+}
+
+.login-box h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+/* Garante que largura 100% seja REAL, sem somar padding */
+* {
+  box-sizing: border-box;
+}
+
+/* Inputs do login */
+.login-box input[type="email"],
+.login-box input[type="password"] {
+  width: 100%;    
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #113C33;
+  color: white;
+  font-size: 15px;
+  display: block;
+}
+
+
+.checkbox-termos {
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: #ddd;
+}
+
+.checkbox-termos a {
+  color: #a0c4ff;
+}
+
+.login-box button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 13px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  background-color: #F2F1D1;
+  cursor: pointer;
+}
+
+.login-box button:disabled {
+  background-color: #c5c5a3;
+  cursor: not-allowed;
+}
+
+.cadastro-link {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.cadastro-link a {
+  color: #a0c4ff;
 }
