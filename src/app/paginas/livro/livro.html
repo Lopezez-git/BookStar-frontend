@@ -24,15 +24,20 @@
 
         <!-- Status e Ações -->
         <div class="status-icons">
-          <button class="icon-btn" title="Visualizado">👁️</button>
+          <button class="icon-btn" title="Visualizado">
+            <img src="olho.png" alt="Visualizado" class="icon-img">
+          </button>
           <button 
             class="icon-btn" 
             [class.active]="livroFinalizado"
             (click)="toggleFinalizado()"
             title="Marcar como concluído">
-            ⏱️ {{ livroFinalizado ? 'Livro concluído' : 'Marcar concluído' }}
+            <img src="relogio-tres.png" alt="Concluído" class="icon-img">
+            <span>{{ livroFinalizado ? 'Livro concluído' : 'Marcar concluído' }}</span>
           </button>
-          <button class="icon-btn" title="Favorito">♥️</button>
+          <button class="icon-btn" title="Favorito">
+            <img src="coracao (1).png" alt="Favorito" class="icon-img">
+          </button>
         </div>
 
         <!-- Avaliação -->

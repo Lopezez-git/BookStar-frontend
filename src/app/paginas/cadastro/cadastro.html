@@ -5,42 +5,44 @@
     <h1 class="titulo">Cadastro</h1>
 
     <form (ngSubmit)="cadastrarUsuario()">
+
       <div class="form-field">
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          placeholder="Endereço de email" 
-          [(ngModel)]="email" 
-          required 
-        />
+        <input type="text" id="username" name="username" placeholder="Username" [(ngModel)]="username" required />
       </div>
 
       <div class="form-field">
-        <input 
-          type="password" 
-          id="senha" 
-          name="senha" 
-          placeholder="Senha" 
-          [(ngModel)]="senha" 
-          required 
-        />
+        <input type="text" id="nome" name="nome" placeholder="Nome" [(ngModel)]="nome" required />
+      </div>
+
+      <!-- 🔹 CPF ADICIONADO AQUI -->
+      <div class="form-field">
+        <input type="text" id="cpf" name="cpf" placeholder="CPF" [(ngModel)]="cpf" required />
+      </div>
+      <!-- 🔹 FIM DO CAMPO CPF -->
+
+      <div class="form-field">
+        <input type="email" id="email" name="email" placeholder="Endereço de email" [(ngModel)]="email" required />
+      </div>
+
+      <div class="form-field">
+        <input type="password" id="senha" name="senha" placeholder="Senha" [(ngModel)]="senha" required />
       </div>
 
       <div class="checkbox-field">
-        <input type="checkbox" id="termos" name="termos" required />
+        <input type="checkbox" id="termos" name="termos" [(ngModel)]="aceitouTermos" />
         <label for="termos">
           Ao se inscrever, você aceita os Termos de Uso do Starbook e reconhece que sua
           <a href="#">Política de Privacidade</a> se aplica.
         </label>
       </div>
 
-      <button type="submit">Entrar</button>
+      <button type="submit">Cadastrar</button>
 
       <div class="login-link">
-        Ou se não tiver uma conta,
-        <a routerLink="/cadastro">cadastre-se</a>
+        Ou se já tiver uma conta,
+        <a routerLink="/login">faça login</a>
       </div>
+
     </form>
   </div>
 </main>

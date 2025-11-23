@@ -19,7 +19,7 @@ interface Livro {
 @Component({
   selector: 'app-livro-detalhes',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './livro.html',
   styleUrls: ['./livro.css']
 })

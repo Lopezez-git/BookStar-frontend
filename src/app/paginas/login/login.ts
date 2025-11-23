@@ -12,12 +12,21 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./login.css']
 })
 export class LoginComponent {
+
   email = '';
   senha = '';
+
+  aceitouTermos = false; // 🔹 AGORA EXISTE!
 
   constructor(private http: HttpClient, private router: Router) {}
 
   fazerLogin() {
+
+    if (!this.aceitouTermos) {
+      alert('Você precisa aceitar os termos antes de entrar.');
+      return;
+    }
+
     const dadosLogin = {
       email: this.email,
       senha: this.senha
@@ -28,11 +37,9 @@ export class LoginComponent {
         console.log('Login realizado com sucesso:', res);
         alert(res.mensagem);
 
-        // Salva o token e o usuário
         localStorage.setItem('token', res.token);
         localStorage.setItem('usuario', JSON.stringify(res.usuario));
 
-        // Redireciona
         this.router.navigate(['']);
       },
       error: (err) => {
