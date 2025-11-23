@@ -5,7 +5,6 @@ body {
   font-family: 'Georgia', serif;
   background-color: #EEEEDD;
   overflow: hidden;
-  /* Não deixa a tela rolar */
 }
 
 /* Fundo de estrelas repetido */
@@ -25,19 +24,18 @@ main {
   position: fixed;
   inset: 0;
   padding-top: 125px;
-  /* ajuste conforme o tamanho do seu header */
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  /* alinha no topo */
   z-index: 1;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Caixa igual ao Figma */
 .form-box {
   background-color: #1B2F26;
   padding: 45px 50px 45px 45px;
-  /* <-- AUMENTA esquerda, DIMINUI direita */
   border-radius: 12px;
   width: 400px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
@@ -58,17 +56,24 @@ main {
 
 .form-field input {
   width: 95%;
-  /*MUDA OS BUTON DE DENTRO*/
   padding: 12px;
   background-color: #2D4339;
   border: 1px solid #3A5046;
   border-radius: 6px;
   color: #EEEEDD;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .form-field input::placeholder {
-  color: rgba(238, 238, 221, 0.6);
+  color: rgba(238, 238, 221, 0.5);
+  font-size: 14px;
+}
+
+.form-field input:focus {
+  outline: none;
+  background-color: #364D42;
+  border-color: #4A6357;
 }
 
 /* Checkbox */
@@ -89,10 +94,19 @@ main {
   color: #EEEEDD;
 }
 
+.checkbox-field a {
+  color: #EEEEDD;
+  text-decoration: underline;
+}
+
+.checkbox-field a:hover {
+  color: #DDD9CB;
+}
+
 /* Botão */
 button {
   width: 100%;
-  padding: 14px;
+  padding: 15px;
   background-color: #EEEEDD;
   color: #1B2F26;
   border: none;
@@ -100,10 +114,17 @@ button {
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover {
   background-color: #DDD9CB;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(0);
 }
 
 /* Link */
@@ -117,4 +138,9 @@ button:hover {
 .login-link a {
   color: #EEEEDD;
   text-decoration: underline;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  color: #DDD9CB;
 }

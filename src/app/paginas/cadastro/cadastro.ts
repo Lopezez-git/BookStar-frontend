@@ -19,14 +19,13 @@ export class Cadastro {
   email = '';
   senha = '';
 
-  // 🔥 VARIÁVEL QUE FALTAVA!
   aceitouTermos = false;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   cadastrarUsuario() {
 
-    // 🔥 VALIDAÇÃO ANTES DE ENVIAR
+  
     if (!this.aceitouTermos) {
       alert('Você precisa aceitar os Termos de Uso antes de continuar.');
       return; // impede o cadastro
