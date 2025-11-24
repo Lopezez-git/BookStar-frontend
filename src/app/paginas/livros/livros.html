@@ -4,7 +4,7 @@
   <h1>Livros Populares</h1>
   <div class="livros-grid">
     <div class="livro-card" *ngFor="let livro of livrosPopulares">
-      <img [src]="livro.img" alt="Capa do livro">
+      <img [src]="livro.img" alt="Capa do livro" [routerLink]="['/livro', livro.id]">
     </div>
   </div>
 </div>
