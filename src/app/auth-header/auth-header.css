@@ -1,0 +1,58 @@
+/* Reset geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* AUTH HEADER */
+.auth-header {
+  width: 100%;
+  background-color: rgb(28, 47, 38);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Container do auth header */
+.auth-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  height: 90px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .auth-header {
+    padding: 8px 15px;
+  }
+
+  .logo {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 65px;
+  }
+}

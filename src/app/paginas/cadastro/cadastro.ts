@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
+import { AuthHeaderComponent } from "../../auth-header/auth-header";
 
 @Component({
   selector: 'app-cadastro',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink, AuthHeaderComponent],
   templateUrl: './cadastro.html',
   styleUrls: ['./cadastro.css']
 })

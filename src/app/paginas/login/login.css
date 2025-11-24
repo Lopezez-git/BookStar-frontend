@@ -29,7 +29,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 215px;           /* distância abaixo do header */
+  padding-top: 225px;           /* distância abaixo do header */
   min-height: 100vh;
   position: relative;
   z-index: 1;
@@ -52,7 +52,7 @@ body {
   margin-bottom: 20px;
   font-weight: bold;
 }
-/* Garante que largura 100% seja REAL, sem somar padding */
+
 * {
   box-sizing: border-box;
 }

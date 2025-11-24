@@ -24,7 +24,7 @@ body {
 main {
   position: fixed;
   inset: 0;
-  padding-top: 125px;
+  padding-top: 135px;
   /* ajuste conforme o tamanho do seu header */
   display: flex;
   justify-content: center;
