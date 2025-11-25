@@ -24,19 +24,34 @@
 
         <!-- Status e Ações -->
         <div class="status-icons">
-          <button class="icon-btn" title="Visualizado">
-            <img src="olho.png" alt="Visualizado" class="icon-img">
-          </button>
+          <!-- Olho = Quero Ler -->
           <button 
             class="icon-btn" 
-            [class.active]="livroFinalizado"
-            (click)="toggleFinalizado()"
-            title="Marcar como concluído">
-            <img src="relogio-tres.png" alt="Concluído" class="icon-img">
-            <span>{{ livroFinalizado ? 'Livro concluído' : 'Marcar concluído' }}</span>
+            [class.active]="isQueroLer"
+            (click)="marcarStatus('quero ler')"
+            title="Quero Ler">
+            <img src="olho.png" alt="Quero Ler" class="icon-img">
+            <span>{{ isQueroLer ? 'Quero Ler ✓' : 'Quero Ler' }}</span>
           </button>
-          <button class="icon-btn" title="Favorito">
-            <img src="coracao (1).png" alt="Favorito" class="icon-img">
+
+          <!-- Coração = Estou Lendo -->
+          <button 
+            class="icon-btn" 
+            [class.active]="isEstouLendo"
+            (click)="marcarStatus('estou lendo')"
+            title="Estou Lendo">
+            <img src="coracao (1).png" alt="Estou Lendo" class="icon-img">
+            <span>{{ isEstouLendo ? 'Estou Lendo ✓' : 'Estou Lendo' }}</span>
+          </button>
+
+          <!-- Relógio = Concluído -->
+          <button 
+            class="icon-btn" 
+            [class.active]="isConcluido"
+            (click)="marcarStatus('concluido')"
+            title="Concluído">
+            <img src="relogio-tres.png" alt="Concluído" class="icon-img">
+            <span>{{ isConcluido ? 'Concluído ✓' : 'Marcar Concluído' }}</span>
           </button>
         </div>
 
