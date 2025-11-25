@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { AuthHeaderComponent } from "../../auth-header/auth-header";
 
 interface Usuario {
   id: number;
   nome: string;
+  username: string;
   avatar: string;
 }
 
@@ -15,60 +17,144 @@ interface Usuario {
   templateUrl: './seguindo.html',
   styleUrls: ['./seguindo.css']
 })
-export class SeguindoComponent {
+export class SeguindoComponent implements OnInit {
   
-  usuarioPrincipal = {
-    nome: 'Jonathan Bennett',
-    avatar: 'assets/jonathan.jpg',
-    seguidores: 4,
-    seguindo: 4
-  };
+  nomeUsuario: string = '';
+  usernameUsuario: string = '';
+  perfilImagem: string = '';
+  seguidores: number = 0;
+  seguindo: number = 0;
 
- usuariosSeguindo: Usuario[] = [
-  { id: 1, nome: 'Allan Lopes', avatar: '/Allan Lopes.jpg' },
-  { id: 2, nome: 'Lethicia Nobre', avatar: '/Lethicia-Nobre.png' },
-  { id: 3, nome: 'Ana Carolina', avatar: '/Ana Carolina.jpg' },
-  { id: 4, nome: 'Thalyta Cristina', avatar: '/Thalyta Cristina.jpg' }
-];
-
-
-  // FOTO DO USUÁRIO
+  usuariosSeguindo: Usuario[] = [];
   previewImagem: string | null = null;
-  fotoUsuario: string = this.usuarioPrincipal.avatar;
 
-  // GETTERS PARA BATER COM O HTML
-  get nomeUsuario() {
-    return this.usuarioPrincipal.nome;
+  carregando: boolean = true;
+  erro: string = '';
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.carregarPerfil();
+    this.carregarSeguindo();
   }
 
-  get seguidores() {
-    return this.usuarioPrincipal.seguidores;
+  // ================= PERFIL =================
+  carregarPerfil(): void {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      this.erro = 'Usuário não autenticado.';
+      this.carregando = false;
+      return;
+    }
+
+    this.http.get<any>('http://localhost:5010/usuario/perfil', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .subscribe({
+      next: (res) => {
+        this.nomeUsuario = res.nome;
+        this.usernameUsuario = res.username;
+        this.perfilImagem = res.imagem_perfil
+          ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}`
+          : '/Default_pfp.jpg';
+
+        this.seguidores = res.seguidores;
+        this.seguindo = res.seguindo;
+        this.carregando = false;
+      },
+      error: () => {
+        this.erro = 'Erro ao carregar perfil.';
+        this.carregando = false;
+      }
+    });
   }
 
-  get seguindo() {
-    return this.usuarioPrincipal.seguindo;
+  // ================= LISTA DE SEGUINDO =================
+  carregarSeguindo(): void {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      this.erro = "Usuário não autenticado.";
+      return;
+    }
+
+    this.http.get<any>('http://localhost:5010/usuario/seguindo', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .subscribe({
+      next: (res) => {
+
+        // Aceita qualquer formato que o backend mandar
+        const lista = res.seguindo || res.lista || res;
+
+        this.usuariosSeguindo = (lista || []).map((u: any) => ({
+          id: u.id || u.id_seguido,
+          nome: u.nome,
+          username: u.username,
+          avatar: u.imagem_perfil
+            ? `http://localhost:5010/storage/perfil/${u.imagem_perfil}`
+            : '/Default_pfp.jpg'
+        }));
+
+      },
+      error: () => {
+        this.erro = "Erro ao carregar lista de seguindo.";
+      }
+    });
+  }
+
+  // ================= TROCAR FOTO =================
+  trocarFoto(event: any): void {
+    const arquivo = event.target.files[0];
+    if (!arquivo) return;
+
+    const reader = new FileReader();
+    reader.onload = () => (this.previewImagem = reader.result as string);
+    reader.readAsDataURL(arquivo);
+
+    const token = localStorage.getItem('token');
+    const formData = new FormData();
+    formData.append('imagem', arquivo);
+
+    this.http.put('http://localhost:5010/usuario/perfil/capa', formData, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .subscribe({
+      next: (res: any) => {
+        this.perfilImagem = res.usuario.imagem_url;
+        alert("Foto atualizada com sucesso!");
+      },
+      error: () => alert("Erro ao enviar foto.")
+    });
+  }
+
+  // ================= DEIXAR DE SEGUIR =================
+  deixarDeSeguir(usuario: Usuario): void {
+    if (!confirm(`Deseja deixar de seguir ${usuario.nome}?`)) return;
+
+    const token = localStorage.getItem('token');
+
+    this.http.delete(`http://localhost:5010/usuario/deixar-seguir/${usuario.id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .subscribe({
+      next: () => {
+        this.usuariosSeguindo = this.usuariosSeguindo.filter(u => u.id !== usuario.id);
+        this.seguindo--;
+        alert(`Você deixou de seguir ${usuario.nome}`);
+      },
+      error: (err) => {
+        alert(err.error?.erro || "Erro ao deixar de seguir.");
+      }
+    });
   }
 
   get listaSeguindo() {
     return this.usuariosSeguindo;
   }
 
-  // FUNÇÃO DE TROCAR FOTO
-  trocarFoto(event: any) {
-    const file = event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.previewImagem = reader.result as string;
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-
-  // FUNÇÃO DE REMOVER SEGUIDO
-  deixarDeSeguir(nome: string) {
-    this.usuariosSeguindo = this.usuariosSeguindo.filter(u => u.nome !== nome);
-    this.usuarioPrincipal.seguindo--;
+  get fotoUsuario() {
+    return this.previewImagem || this.perfilImagem;
   }
 }

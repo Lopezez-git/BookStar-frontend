@@ -4,11 +4,11 @@
   <div class="seguindo-container">
     <div class="seguindo-card">
 
-      <!-- ESQUERDA (mesmo layout do perfil) -->
+      <!-- ESQUERDA (perfil) -->
       <div class="seguindo-left">
+        
         <div class="foto-wrapper">
-          <img [src]="previewImagem || fotoUsuario || 'assets/default-avatar.png'">
-
+          <img [src]="fotoUsuario || 'assets/default-avatar.png'">
           <input type="file" accept="image/*" (change)="trocarFoto($event)">
         </div>
 
@@ -26,24 +26,22 @@
         <div class="lista-seguidos">
 
           <div class="seguido" *ngFor="let u of listaSeguindo">
-            <img [src]="u.avatar || 'assets/default-avatar.png'">
+
+            <img [src]="u.avatar">
 
             <span class="nome-seguido">{{ u.nome }}</span>
 
-            <button class="btn-remover" (click)="deixarDeSeguir(u.nome)">
+            <!-- CORREÇÃO AQUI ⬇ -->
+            <button class="btn-remover" (click)="deixarDeSeguir(u)">
               ✕
             </button>
+
           </div>
 
         </div>
 
-        <!-- MENSAGEM QUANDO A LISTA FICA VAZIA -->
         <div class="sem-seguindo" *ngIf="usuariosSeguindo.length === 0">
           <p>Você ainda não está seguindo ninguém.</p>
         </div>
 
       </div>
-
-    </div>
-  </div>
-</main>
