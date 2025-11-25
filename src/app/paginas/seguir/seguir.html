@@ -32,20 +32,20 @@
         
         <!-- Foto com ícone de adicionar -->
         <div class="foto-container">
-          <img [src]="usuario.fotoPerfil" [alt]="usuario.nome" class="foto-perfil-pequena">
+          <img [src]="usuario.perfilImagem" [alt]="usuario.nomeUsuario" class="foto-perfil-pequena">
           
           <!-- Ícone verde de adicionar - aparece apenas se não estiver seguindo -->
           <button 
             *ngIf="!usuario.seguindo" 
             class="btn-add-icon"
             (click)="seguirUsuario(usuario)"
-            [title]="'Seguir ' + usuario.nome">
+            [title]="'Seguir ' + usuario.nomeUsuario">
             <img src="/seguir (1).png" alt="Adicionar" class="icon-add">
           </button>
         </div>
 
         <!-- Nome do usuário -->
-        <span class="nome-usuario">{{ usuario.nome }}</span>
+        <span class="nome-usuario">{{ usuario.nomeUsuario }}</span>
         
       </div>
 
