@@ -12,10 +12,10 @@
           <input type="file" accept="image/*" (change)="trocarFoto($event)">
         </div>
 
-        <h2 class="nome-user">{{ nomeUsuario }}</h2>
+        <h2 class="nome-user">{{ usernameUsuario }}</h2>
 
         <p class="seguidores">
-          Seguidores: {{ seguidores }} / Seguindo {{ seguindo }}
+          Seguidores: {{ seguidores }} / Seguindo: {{ seguindo }}
         </p>
       </div>
 
@@ -29,9 +29,8 @@
 
             <img [src]="u.avatar">
 
-            <span class="nome-seguido">{{ u.nome }}</span>
+            <span class="nome-seguido">{{ u.username }}</span>
 
-            <!-- CORREÇÃO AQUI ⬇ -->
             <button class="btn-remover" (click)="deixarDeSeguir(u)">
               ✕
             </button>
@@ -45,3 +44,7 @@
         </div>
 
       </div>
+
+    </div>
+  </div>
+</main>

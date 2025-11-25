@@ -55,12 +55,14 @@ export class SeguindoComponent implements OnInit {
       next: (res) => {
         this.nomeUsuario = res.nome;
         this.usernameUsuario = res.username;
+
         this.perfilImagem = res.imagem_perfil
           ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}`
           : '/Default_pfp.jpg';
 
         this.seguidores = res.seguidores;
         this.seguindo = res.seguindo;
+
         this.carregando = false;
       },
       error: () => {
@@ -85,7 +87,6 @@ export class SeguindoComponent implements OnInit {
     .subscribe({
       next: (res) => {
 
-        // Aceita qualquer formato que o backend mandar
         const lista = res.seguindo || res.lista || res;
 
         this.usuariosSeguindo = (lista || []).map((u: any) => ({
@@ -131,13 +132,15 @@ export class SeguindoComponent implements OnInit {
 
   // ================= DEIXAR DE SEGUIR =================
   deixarDeSeguir(usuario: Usuario): void {
-    if (!confirm(`Deseja deixar de seguir ${usuario.nome}?`)) return;
+    if (!confirm(`Deseja deixar de seguir ${usuario.username}?`)) return;
 
     const token = localStorage.getItem('token');
 
-    this.http.delete(`http://localhost:5010/usuario/deixar-seguir/${usuario.id}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    this.http.post(
+      `http://localhost:5010/usuario/deixar-de-seguir`,
+      { username: usuario.username },
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
     .subscribe({
       next: () => {
         this.usuariosSeguindo = this.usuariosSeguindo.filter(u => u.id !== usuario.id);
@@ -145,7 +148,7 @@ export class SeguindoComponent implements OnInit {
         alert(`Você deixou de seguir ${usuario.nome}`);
       },
       error: (err) => {
-        alert(err.error?.erro || "Erro ao deixar de seguir.");
+        alert(err.error?.mensagem || "Erro ao deixar de seguir.");
       }
     });
   }

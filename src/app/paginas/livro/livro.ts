@@ -186,11 +186,6 @@ export class LivroComponent implements OnInit {
       return;
     }
 
-    if (this.avaliacaoUsuario === 0) {
-      alert('Selecione uma avaliação!');
-      return;
-    }
-
     const token = localStorage.getItem("token");
     if (!token) {
       alert("Você precisa estar logado para salvar.");

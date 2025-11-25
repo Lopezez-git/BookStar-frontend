@@ -23,7 +23,7 @@ interface Livro {
 export class Perfil implements OnInit {
 
   nomeUsuario: string = '';
-  usernameUsario: string = '';
+  usernameUsuario: string = '';
   perfilImagem: string = '';
   seguidores: number = 0;
   seguindo: number = 0;
@@ -42,10 +42,15 @@ export class Perfil implements OnInit {
   }
 
   carregarPerfil() {
-    this.http.get<any>('http://localhost:5010/usuario/perfil').subscribe({
+    this.http.get<any>('http://localhost:5010/usuario/perfil', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe({
       next: (res) => {
         this.nomeUsuario = res.nome;
-        this.usernameUsario = res.username;
+        this.usernameUsuario = res.username;
+
         this.perfilImagem = res.imagem_perfil
           ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}`
           : '/Default_pfp.jpg';
@@ -76,12 +81,16 @@ export class Perfil implements OnInit {
       return;
     }
 
-    this.http.get<any>(url).subscribe({
+    this.http.get<any>(url, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe({
       next: (res) => {
-        const lista = res.livros || [];
+        const lista = res.livros || res || [];
 
         this.livrosFiltrados = lista.map((l: any) => ({
-          id: l.id,
+          id: l.livroId,          // <-- CORREÇÃO
           titulo: l.titulo,
           autor: l.autores,
           capa: `http://localhost:5010${l.capa_url}`,
@@ -90,30 +99,32 @@ export class Perfil implements OnInit {
           status: l.status
         }));
 
-        console.log('Livros processados:', this.livrosFiltrados);
-      },
 
+        console.log('Livros filtrados:', this.livrosFiltrados);
+      },
       error: (err) => {
-        console.error("❌ Erro ao carregar livros:", err);
+        console.error("Erro ao carregar livros:", err);
         this.livrosFiltrados = [];
       }
     });
   }
 
-  // FUNÇÃO PARA REMOVER LIVRO
+  // ⛔ FUNÇÃO DEFINITIVA DE REMOVER LIVRO DA BIBLIOTECA
   removerLivro(livro: Livro) {
     if (!confirm(`Tem certeza que deseja remover "${livro.titulo}"?`)) {
       return;
     }
 
-    // Chama o backend para remover o livro
-    this.http.delete(`http://localhost:5010/usuario/biblioteca/${livro.id}`).subscribe({
+    this.http.delete(`http://localhost:5010/usuario/biblioteca/delete/${livro.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe({
       next: () => {
         console.log('Livro removido com sucesso!');
-        
-        // Remove da lista visual
+
         this.livrosFiltrados = this.livrosFiltrados.filter(l => l.id !== livro.id);
-        
+
         alert('Livro removido da sua biblioteca!');
       },
       error: (err) => {
@@ -134,7 +145,11 @@ export class Perfil implements OnInit {
     leitor.onload = () => (this.previewImagem = leitor.result as string);
     leitor.readAsDataURL(arquivo);
 
-    this.http.put('http://localhost:5010/usuario/perfil/capa', formData).subscribe({
+    this.http.put('http://localhost:5010/usuario/perfil/capa', formData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }).subscribe({
       next: (res: any) => {
         console.log("Upload OK:", res);
         this.perfilImagem = res.usuario.imagem_url;

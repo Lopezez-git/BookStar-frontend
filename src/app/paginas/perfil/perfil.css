@@ -150,7 +150,6 @@
 }
 
 .stars {
-<<<<<<< HEAD
   color: gold;
 }
 
@@ -184,7 +183,6 @@
 .btn-remover-livro svg {
   width: 20px;
   height: 20px;
-=======
   display: flex;
   gap: 2px;
   font-size: 18px;
@@ -197,5 +195,5 @@
 
 .stars span.filled {
   color: gold; /* Estrela preenchida - dourado */
->>>>>>> 0c00337f4aa9ee333d375f380d33f304d8d0ca2a
+
 }
