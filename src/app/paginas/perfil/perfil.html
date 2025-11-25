@@ -2,10 +2,21 @@
   <div class="perfil-container">
     <div class="perfil-card">
 
-      <!-- LADO ESQUERDO -->
       <div class="perfil-left">
         <div class="foto-wrapper">
-          <img [src]="perfilImagem || 'assets/default-avatar.png'" alt="">
+
+          <!-- Aqui uso o operador (OU) para decidir qual imagem mostrar:
+          1. Se previewImagem existir (usuário escolheu uma foto) = MOSTRA ELA
+          2. Se não, tenta perfilImagem (foto que veio do backend) = MOSTRA ELA
+          3. Se não tem nenhuma das duas = MOSTRA a imagem padrão -->
+
+       <img [src]="previewImagem || perfilImagem || 'assets/default-avatar.png'" alt="Foto de perfil">
+
+          <!-- Input invisível que abre o seletor de arquivos
+          accept="image/*" = só aceita imagens (jpg, png, etc)
+          (change) = quando o usuário escolher um arquivo, chama a função trocarFoto()-->
+
+        <input type="file" accept="image/*" (change)="trocarFoto($event)">
         </div>
 
         <h2 class="nome-user">{{ nomeUsuario }}</h2>
@@ -14,32 +25,23 @@
         </p>
       </div>
 
-      <!-- LADO DIREITO -->
       <div class="perfil-right">
 
         <!-- ABAS -->
         <div class="abas">
-          <button 
-            [class.ativo]="abaAtiva === 'livrosLidos'"
-            (click)="mudarAba('livrosLidos')">
+          <button [class.ativo]="abaAtiva === 'livrosLidos'" (click)="mudarAba('livrosLidos')">
             Livros Lidos
           </button>
 
-          <button 
-            [class.ativo]="abaAtiva === 'queroLer'"
-            (click)="mudarAba('queroLer')">
+          <button [class.ativo]="abaAtiva === 'queroLer'" (click)="mudarAba('queroLer')">
             Quero ler
           </button>
 
-          <button 
-            [class.ativo]="abaAtiva === 'estouLendo'"
-            (click)="mudarAba('estouLendo')">
+          <button [class.ativo]="abaAtiva === 'estouLendo'" (click)="mudarAba('estouLendo')">
             Estou lendo
           </button>
 
-          <button 
-            [class.ativo]="abaAtiva === 'reviews'"
-            (click)="mudarAba('reviews')">
+          <button [class.ativo]="abaAtiva === 'reviews'" (click)="mudarAba('reviews')">
             Reviews
           </button>
         </div>
@@ -54,9 +56,7 @@
               <h3>{{ livro.titulo }}</h3>
 
               <div class="stars">
-                <span 
-                  *ngFor="let star of [1,2,3,4,5]"
-                  [class.filled]="star <= livro.avaliacao">
+                <span *ngFor="let star of [1,2,3,4,5]" [class.filled]="star <= livro.avaliacao">
                   ★
                 </span>
               </div>

@@ -1,3 +1,30 @@
+.foto-wrapper {
+  position: relative;
+  /* Para poder posicionar o input "por cima" da imagem */
+  cursor: pointer;
+  /* Mostra que é clicável */
+}
+
+/* Estiliza o input de arquivo para ficar INVISÍVEL mas CLICÁVEL */
+.foto-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Ocupa toda a área da foto */
+  height: 100%;
+  /* Ocupa toda a área da foto */
+  opacity: 0;
+  /* INVISÍVEL! Mas ainda está lá */
+  cursor: pointer;
+  /* Mostra que é clicável */
+
+  /* 
+    RESUMO: O input está "por cima" da imagem, mas é invisível
+    Quando o usuário clica na foto, na verdade está clicando no input invisível
+    E isso abre o seletor de arquivos!
+  */
+}
 
 .perfil-container::before {
   content: '';
@@ -18,7 +45,8 @@
   display: flex;
   justify-content: center;
   padding: 40px 0;
-  margin-top: 170px; /* <-- ISSO coloca abaixo do header */
+  margin-top: 170px;
+  /* <-- ISSO coloca abaixo do header */
 }
 
 
@@ -30,7 +58,8 @@
   width: 90%;
   max-width: 1100px;
   gap: 30px;
-  min-height: 340px; /* ALTURA MAIOR */
+  min-height: 340px;
+  /* ALTURA MAIOR */
 }
 
 
@@ -46,7 +75,8 @@
   height: 180px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 30px auto 15px; /* 30px em cima */
+  margin: 30px auto 15px;
+  /* 30px em cima */
   border: 2px solid #ccc;
 }
 

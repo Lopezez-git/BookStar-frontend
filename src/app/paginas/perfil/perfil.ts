@@ -49,7 +49,7 @@ export class Perfil implements OnInit {
 
   livrosFiltrados: Livro[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.carregarPerfil();
@@ -61,10 +61,10 @@ export class Perfil implements OnInit {
     this.http.get<any>('http://localhost:5010/usuario/perfil').subscribe({
       next: (res) => {
 
-        console.log("Resposta da api: " , res.imagem_perfil);
+        console.log("Resposta da api: ", res.imagem_perfil);
         this.nomeUsuario = res.nome;
-        this.perfilImagem = res.imagem_perfil 
-        ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}` : '/Default_pfp.jpg';
+        this.perfilImagem = res.imagem_perfil
+          ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}` : '/Default_pfp.jpg';
         this.seguidores = res.seguidores;
         this.seguindo = res.seguindo;
         this.livros = res.livros || this.livros;
@@ -83,7 +83,7 @@ export class Perfil implements OnInit {
   }
 
   filtrarLivros() {
-    switch(this.abaAtiva) {
+    switch (this.abaAtiva) {
       case 'livrosLidos':
         this.livrosFiltrados = this.livros.filter(l => l.status === 'lido');
         break;
@@ -106,4 +106,27 @@ export class Perfil implements OnInit {
         this.livrosFiltrados = this.livros;
     }
   }
+
+  // Criei uma variável para guardar a URL temporária da imagem que o usuário escolher
+  // Começa como null porque ainda não tem nenhuma imagem selecionada
+  previewImagem: string | null = null;
+
+  trocarFoto(event: any) {
+    // Quando o usuário escolhe um arquivo, pego o primeiro arquivo da lista
+    // (event.target.files é um array, mas como só permito escolher 1 arquivo, pego o [0])
+    const arquivo = event.target.files[0];
+
+    // Se não tem arquivo (usuário cancelou), não faço nada e saio da função
+    if (!arquivo) return;
+
+    // AQUI É A MÁGICA: URL.createObjectURL() cria uma URL temporária do arquivo
+    // É tipo criar um link falso que aponta pro arquivo na memória do navegador
+    // Exemplo: "blob:http://localhost:4200/abc123-def456"
+    // Essa URL eu posso usar no [src] da imagem para mostrar o preview!
+    this.previewImagem = URL.createObjectURL(arquivo);
+
+    // Agora previewImagem tem uma URL tipo: "blob:http://localhost:4200/..."
+    // E o HTML vai usar ela pra mostrar a imagem antes de enviar pro backend
+  }
+
 }
