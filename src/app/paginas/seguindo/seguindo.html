@@ -36,6 +36,12 @@
           </div>
 
         </div>
+
+        <!-- MENSAGEM QUANDO A LISTA FICA VAZIA -->
+        <div class="sem-seguindo" *ngIf="usuariosSeguindo.length === 0">
+          <p>Você ainda não está seguindo ninguém.</p>
+        </div>
+
       </div>
 
     </div>
