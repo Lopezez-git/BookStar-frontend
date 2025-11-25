@@ -75,38 +75,41 @@ export class SeguirComponent implements OnInit {
 
   // ================== SUGESTÕES ====================
   carregarSugestoes(): void {
-    const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
 
-    if (!token) {
-      this.erro = "Usuário não autenticado.";
-      return;
-    }
-
-    this.http.get<any>('http://localhost:5010/usuario/show-all-usuarios', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .subscribe({
-        next: (res) => {
-
-          console.log(res.listaUsuarios);
-          this.sugestoes = res.listaUsuarios.map((u: any) => ({
-            id: u.id,
-            nomeUsuario: u.nome,
-            username: u.username,
-            perfilImagem: u.imagem_perfil
-              ? `http://localhost:5010/storage/perfil/${u.imagem_perfil}`
-              : '/Default_pfp.jpg',
-            seguindo: false
-          }));
-          this.carregando = false;
-        },
-        error: (err) => {
-          console.error("Erro ao carregar sugestões:", err);
-          this.erro = "Erro ao carregar sugestões";
-          this.carregando = false;
-        }
-      });
+  if (!token) {
+    this.erro = "Usuário não autenticado.";
+    return;
   }
+
+  this.http.get<any>('http://localhost:5010/usuario/all', {
+    headers: { Authorization: `Bearer ${token}` }
+  })
+    .subscribe({
+      next: (res) => {
+        console.log('Resposta completa:', res);
+        
+        // Verifica se res tem listaUsuarios ou se é um array direto
+        const lista = res.listaUsuarios || res;
+        
+        this.sugestoes = lista.map((u: any) => ({
+          id: u.id,
+          nomeUsuario: u.nome,
+          username: u.username,
+          perfilImagem: u.imagem_perfil
+            ? `http://localhost:5010/storage/perfil/${u.imagem_perfil}`
+            : '/Default_pfp.jpg',
+          seguindo: false
+        }));
+        this.carregando = false;
+      },
+      error: (err) => {
+        console.error("Erro ao carregar sugestões:", err);
+        this.erro = "Erro ao carregar sugestões";
+        this.carregando = false;
+      }
+    });
+}
 
   // ================== SEGUIR ====================
   seguirUsuario(usuario: Usuario): void {
