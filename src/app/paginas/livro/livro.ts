@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-// Importa um JSON local
+// Importa JSON local
 import livrosData from '../../../assets/livros.json';
 
 interface Livro {
@@ -24,6 +25,7 @@ interface Livro {
   styleUrls: ['./livro.css']
 })
 export class LivroComponent implements OnInit {
+
   livro: Livro | null = null;
   carregando = true;
   erro = '';
@@ -34,7 +36,11 @@ export class LivroComponent implements OnInit {
   comentarioUsuario = '';
   livroFinalizado = false;
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -46,7 +52,6 @@ export class LivroComponent implements OnInit {
   buscarDetalhesLivro(id: string): void {
     this.carregando = true;
 
-    // Procura o livro no JSON local
     const livroEncontrado = (livrosData as Livro[]).find(l => l.id === id);
 
     if (livroEncontrado) {
@@ -79,21 +84,54 @@ export class LivroComponent implements OnInit {
     this.livroFinalizado = !this.livroFinalizado;
   }
 
+  // 🔥 SALVAR AVALIAÇÃO NO BACKEND
   salvarAvaliacao(): void {
+    if (!this.livro) {
+      alert("Erro: livro não carregado!");
+      return;
+    }
+
     if (this.avaliacaoUsuario === 0) {
       alert('Selecione uma avaliação!');
       return;
     }
 
-    const avaliacao = {
-      livroId: this.livro?.id,
-      rating: this.avaliacaoUsuario,
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Você precisa estar logado para salvar.");
+      return;
+    }
+
+    const body = {
       comentario: this.comentarioUsuario,
-      finalizado: this.livroFinalizado
+      avaliacao: this.avaliacaoUsuario
     };
 
-    console.log('Avaliação salva:', avaliacao);
-    alert('Avaliação salva com sucesso!');
+    const tituloEncoded = encodeURIComponent(this.livro.titulo);
+
+    this.http.post(
+      `http://localhost:5010/usuario/biblioteca/post/${tituloEncoded}`,
+      body,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    ).subscribe({
+      next: (res: any) => {
+        console.log("Resposta do backend:", res);
+        alert("Avaliação salva com sucesso!");
+      },
+      error: (err) => {
+        console.error("Erro ao salvar avaliação:", err);
+
+        if (err.error?.erro === "Livro já está na biblioteca do usuário.") {
+          alert("Este livro já está na sua biblioteca!");
+        } else {
+          alert(err.error?.erro || "Erro ao salvar avaliação.");
+        }
+      }
+    });
   }
 
   voltar(): void {
