@@ -18,7 +18,9 @@
     
     <!-- Usuário Logado -->
     <div class="usuario-logado" *ngIf="usuarioLogado">
-      <img [src]="usuarioLogado.fotoPerfil" [alt]="usuarioLogado.nome" class="foto-perfil-grande">
+      <img [src]="usuarioLogado.fotoPerfil" 
+           [alt]="usuarioLogado.nome" 
+           class="foto-perfil-grande">
       <h2>{{ usuarioLogado.nome }}</h2>
     </div>
 
@@ -27,26 +29,34 @@
 
     <!-- Lista de Sugestões -->
     <div class="lista-sugestoes" *ngIf="sugestoes.length > 0">
-      
+
       <div *ngFor="let usuario of sugestoes" class="sugestao-item">
-        
+
         <!-- Foto com ícone de adicionar -->
         <div class="foto-container">
-          <img [src]="usuario.perfilImagem" [alt]="usuario.nomeUsuario" class="foto-perfil-pequena">
-          
-          <!-- Ícone verde de adicionar - aparece apenas se não estiver seguindo -->
+          <img 
+            [src]="usuario.perfilImagem" 
+            [alt]="usuario.nomeUsuario" 
+            class="foto-perfil-pequena">
+
+          <!-- Ícone verde de adicionar -->
           <button 
-            *ngIf="!usuario.seguindo" 
+            *ngIf="!usuario.seguindo"
             class="btn-add-icon"
             (click)="seguirUsuario(usuario)"
             [title]="'Seguir ' + usuario.nomeUsuario">
             <img src="/seguir (1).png" alt="Adicionar" class="icon-add">
           </button>
+
+          <!-- Se já estiver seguindo, mostrar ✓ -->
+          <div *ngIf="usuario.seguindo" class="seguindo-check">
+            ✔
+          </div>
         </div>
 
-        <!-- Nome do usuário -->
+        <!-- Nome -->
         <span class="nome-usuario">{{ usuario.nomeUsuario }}</span>
-        
+
       </div>
 
     </div>

@@ -22,7 +22,7 @@
   "id": "3",
   "titulo": "Nem Todo Amor Tem Um Final Feliz. E Tá Tudo Bem",
   "descricao": "Uma coletânea sensível de poemas e reflexões sobre amores que não deram certo, despedidas necessárias e a beleza de seguir em frente. Este livro celebra a cura emocional e a aceitação de que nem todos os relacionamentos precisam durar para sempre para serem significativos. Com uma linguagem poética e honesta, a obra convida o leitor a abraçar suas próprias experiências de perda e renovação, encontrando conforto na certeza de que tá tudo bem não ter um final feliz.",
-  "foto_autor": "/autores/autor3.jpg",
+  "foto_autor": "",
   "autor": "Anônimo / Coletivo de Autores",
   "biografiaAutor": "Esta obra reúne vozes diversas que compartilham experiências sobre amor, perda e recomeços. Escrita em um formato acessível e profundamente humano, o livro se tornou um fenômeno nas redes sociais, conquistando milhares de leitores que se identificam com suas mensagens de autoaceitação e superação. Os autores, ainda que anônimos, carregam em suas palavras a universalidade das emoções humanas.",
   "capa_livro": "/livros/livro3.png"
@@ -31,7 +31,7 @@
   "id": "4",
   "titulo": "A Good Girl's Guide to Murder",
   "descricao": "Pippa Fitz-Amobi escolhe investigar um caso de assassinato já resolvido como projeto de conclusão de curso. Cinco anos atrás, a estudante Andie Bell foi morta, e seu namorado Sal Singh foi considerado culpado antes de cometer suicídio. Mas Pip não acredita que ele seja o assassino. Enquanto desenterra segredos obscuros em sua pequena cidade, ela percebe que algumas verdades são perigosas demais para serem reveladas. Um thriller jovem adulto cheio de reviravoltas que prende até a última página.",
-  "foto_autor": "/autores/autor4.jpg",
+  "foto_autor": "/autores/Holly Jackson.jpg",
   "autor": "Holly Jackson",
   "biografiaAutor": "Holly Jackson é uma escritora britânica nascida em 1992. Formada em Literatura pela Universidade de Nottingham, ela estreou na literatura com A Good Girl's Guide to Murder, que rapidamente se tornou um best-seller internacional. Jackson é conhecida por criar thrillers envolventes para o público jovem adulto, combinando mistério, suspense e personagens complexos. Sua trilogia protagonizada por Pippa Fitz-Amobi conquistou milhões de fãs ao redor do mundo.",
   "capa_livro": "/livros/livro4.png"
@@ -40,7 +40,7 @@
   "id": "5",
   "titulo": "Bitten",
   "descricao": "Elena Michaels é a única lobisomem mulher do mundo, e ela odeia isso. Tentando viver uma vida normal em Toronto, ela é forçada a retornar à alcateia quando lobisomens rebeldes começam a ameaçar sua família sobrenatural. Entre lealdades divididas, segredos do passado e a luta por sua humanidade, Elena precisa decidir quem ela realmente é. O primeiro livro da série Women of the Otherworld combina romance urbano, ação e elementos sobrenaturais em uma narrativa viciante.",
-  "foto_autor": "/autores/autor5.jpg",
+  "foto_autor": "/autores/Kelley Armstrong.jpeg",
   "autor": "Kelley Armstrong",
   "biografiaAutor": "Kelley Armstrong é uma escritora canadense nascida em 1968, especializada em ficção urbana e fantasia. Com formação em psicologia, ela criou diversos universos sobrenaturais complexos e personagens femininas fortes. Sua série Women of the Otherworld é uma das mais populares do gênero, explorando diferentes criaturas paranormais em um mundo contemporâneo. Armstrong é reconhecida por sua habilidade em misturar ação, romance e mitologia com narrativas envolventes.",
   "capa_livro": "/livros/livro5.png"
@@ -50,7 +50,7 @@
   "id": "6",
   "titulo": "Manual de Assassinato para Boas Garotas",
   "descricao": "Pippa Fitz-Amobi está de volta em uma nova investigação. Desta vez, ela cria um podcast sobre crimes e recebe um pedido angustiante: encontrar Jamie Reynolds, que desapareceu misteriosamente. Conforme Pip mergulha no caso, ela percebe que está sendo observada e que alguém não quer que ela descubra a verdade. As pistas a levam cada vez mais perto do perigo, e ela precisa decidir até onde está disposta a ir pela justiça. Segundo livro da trilogia de Holly Jackson, tão viciante quanto o primeiro.",
-  "foto_autor": "/autores/autor4.jpg",
+  "foto_autor": "/autores/Holly Jackson.jpg",
   "autor": "Holly Jackson",
   "biografiaAutor": "Holly Jackson é uma escritora britânica nascida em 1992. Formada em Literatura pela Universidade de Nottingham, ela estreou na literatura com A Good Girl's Guide to Murder, que rapidamente se tornou um best-seller internacional. Jackson é conhecida por criar thrillers envolventes para o público jovem adulto, combinando mistério, suspense e personagens complexos. Sua trilogia protagonizada por Pippa Fitz-Amobi conquistou milhões de fãs ao redor do mundo.",
   "capa_livro": "/livros/livro6.png"
@@ -59,7 +59,7 @@
   "id": "7",
   "titulo": "O Silêncio dos Inocentes",
   "descricao": "Clarice Starling, uma jovem agente do FBI em treinamento, é designada para entrevistar o brilhante psiquiatra e serial killer Hannibal Lecter, preso em um hospital psiquiátrico de segurança máxima. O objetivo é obter insights para capturar Buffalo Bill, um assassino em série que sequestra e mata mulheres jovens. A relação psicológica intensa entre Clarice e Lecter se desenvolve em um jogo de manipulação, inteligência e revelações perturbadoras. Um clássico do suspense psicológico que definiu o gênero.",
-  "foto_autor": "/autores/autor7.jpg",
+  "foto_autor": "/autores/Thomas Harris.jpg",
   "autor": "Thomas Harris",
   "biografiaAutor": "Thomas Harris é um escritor americano nascido em 1940, no Tennessee. Jornalista por formação, ele se tornou mundialmente famoso por criar o personagem Hannibal Lecter, um dos vilões mais icônicos da literatura e do cinema. Harris é mestre em construir suspense psicológico e criar atmosferas perturbadoras. Suas obras, incluindo Dragão Vermelho e O Silêncio dos Inocentes, revolucionaram o gênero thriller e influenciaram gerações de escritores. Ele é conhecido por seu perfeccionismo e longos intervalos entre publicações.",
   "capa_livro": "/livros/livro7.png"
@@ -68,7 +68,7 @@
   "id": "8",
   "titulo": "Amor Pelas Coisas Imperfeitas",
   "descricao": "Uma reflexão poética sobre a aceitação das imperfeições da vida e das pessoas ao nosso redor. Através de textos curtos e profundos, o livro convida o leitor a abraçar suas falhas, a encontrar beleza no imperfeito e a cultivar a compaixão consigo mesmo e com os outros. Com uma linguagem acessível e tocante, a obra explora temas como amor-próprio, vulnerabilidade, perdão e a arte de viver com leveza em um mundo que constantemente exige perfeição.",
-  "foto_autor": "/autores/autor8.jpg",
+  "foto_autor": "/autores/Haemin Sunim.jpg",
   "autor": "Haemin Sunim",
   "biografiaAutor": "Haemin Sunim é um monge budista sul-coreano, professor e autor best-seller. Formado em religião pela Universidade de Harvard e em educação pela Universidade de Princeton, ele combina ensinamentos budistas com reflexões sobre a vida moderna. Seus livros, incluindo As Coisas Que Você Só Vê Quando Desacelera, tornaram-se fenômenos globais, conquistando milhões de leitores. Sunim é conhecido por sua habilidade em tornar conceitos espirituais acessíveis e aplicáveis ao cotidiano contemporâneo.",
   "capa_livro": "/livros/livro8.png"
@@ -77,7 +77,7 @@
   "id": "9",
   "titulo": "Para Todas as Pessoas Resilientes",
   "descricao": "Uma coletânea de textos inspiradores dedicados àqueles que enfrentam adversidades com coragem e determinação. O livro celebra a força interior, a capacidade de recomeçar e o poder da resiliência emocional. Através de histórias, reflexões e mensagens de esperança, a obra oferece conforto e motivação para quem passa por momentos difíceis, lembrando que é possível crescer e florescer mesmo após as tempestades da vida.",
-  "foto_autor": "/autores/autor9.jpg",
+  "foto_autor": "/autores/",
   "autor": "Diversos Autores",
   "biografiaAutor": "Esta obra reúne contribuições de diversos escritores e poetas contemporâneos que compartilham experiências sobre superação, força e renovação. Com sensibilidade e autenticidade, os autores oferecem perspectivas variadas sobre a resiliência humana, criando um mosaico literário que ressoa com leitores de diferentes contextos e vivências.",
   "capa_livro": "/livros/livro9.png"
@@ -86,7 +86,7 @@
   "id": "10",
   "titulo": "1984",
   "descricao": "Em um futuro distópico totalitário, Winston Smith vive sob a vigilância constante do Grande Irmão, o líder supremo do Partido que controla todos os aspectos da vida. Trabalhando no Ministério da Verdade, onde reescreve a história conforme as necessidades do regime, Winston começa a questionar a realidade imposta e se rebela secretamente. Sua busca por verdade e liberdade o leva a um relacionamento proibido e a consequências devastadoras. Um clássico atemporal sobre totalitarismo, manipulação e resistência.",
-  "foto_autor": "/autores/autor10.jpg",
+  "foto_autor": "/autores/George Orwell.jpg",
   "autor": "George Orwell",
   "biografiaAutor": "George Orwell, pseudônimo de Eric Arthur Blair (1903-1950), foi um escritor, jornalista e crítico social britânico. Suas experiências como policial imperial na Birmânia e lutando na Guerra Civil Espanhola moldaram sua visão política e literária. Orwell é autor de obras fundamentais como A Revolução dos Bichos e 1984, que exploram temas como totalitarismo, propaganda e liberdade. Sua escrita clara e direta, combinada com profundas críticas sociais, tornou-o um dos mais influentes escritores do século XX.",
   "capa_livro": "/livros/livro10.png"
@@ -95,7 +95,7 @@
   "id": "11",
   "titulo": "As Coisas Que Você Só Vê Quando Desacelera",
   "descricao": "Em um mundo acelerado e cheio de distrações, este livro convida o leitor a pausar, respirar e observar o que realmente importa. Através de reflexões sobre mindfulness, compaixão e vida consciente, o autor oferece sabedoria budista aplicada ao cotidiano moderno. Com ilustrações delicadas e textos curtos, a obra ensina a encontrar paz interior, cultivar relacionamentos saudáveis e viver com mais presença e gratidão. Um guia gentil para desacelerar e redescobrir a beleza da vida simples.",
-  "foto_autor": "/autores/autor8.jpg",
+  "foto_autor": "/autores/Haemin Sunim.jpg",
   "autor": "Haemin Sunim",
   "biografiaAutor": "Haemin Sunim é um monge budista sul-coreano, professor e autor best-seller. Formado em religião pela Universidade de Harvard e em educação pela Universidade de Princeton, ele combina ensinamentos budistas com reflexões sobre a vida moderna. Seus livros tornaram-se fenômenos globais, conquistando milhões de leitores. Sunim é conhecido por sua habilidade em tornar conceitos espirituais acessíveis e aplicáveis ao cotidiano contemporâneo.",
   "capa_livro": "/livros/livro11.png"
@@ -104,7 +104,7 @@
   "id": "12",
   "titulo": "Assombrando Adeline",
   "descricao": "Adeline Reilly herda a mansão de sua bisavó e descobre o diário de uma mulher que viveu décadas atrás, vítima de um stalker obcecado. Enquanto lê as páginas perturbadoras, Adeline percebe que ela própria está sendo observada por alguém nas sombras. Zade Meadows é perigoso, misterioso e determinado a protegê-la de uma forma obsessiva. Entre o terror e a atração proibida, Adeline se vê presa em um jogo sombrio de obsessão e desejo. Um dark romance intenso que explora os limites entre perigo e paixão.",
-  "foto_autor": "/autores/autor12.jpg",
+  "foto_autor": "/autores/H.D Carlton.jpg",
   "autor": "H.D. Carlton",
   "biografiaAutor": "H.D. Carlton é uma autora americana conhecida por seus romances dark com elementos de suspense psicológico. Especializada em histórias intensas que exploram relacionamentos complexos e temas controversos, ela conquistou uma legião de fãs dedicados. Carlton é reconhecida por criar narrativas provocativas que desafiam convenções do romance contemporâneo, sempre com personagens multifacetados e tramas envolventes.",
   "capa_livro": "/livros/livro12.png"
@@ -113,7 +113,7 @@
   "id": "13",
   "titulo": "Assistente do Vilão",
   "descricao": "Evie Sage trabalha como assistente do Rei Vilão mais temido do reino há anos, organizando sua agenda maligna e lidando com suas excentricidades. Mas quando um erro ameaça custar sua vida, ela descobre que seu patrão pode não ser tão cruel quanto parece. Entre planos malignos, humor inesperado e uma química surpreendente, Evie questiona tudo que achava que sabia sobre vilões e heróis. Uma fantasia romântica divertida que subverte tropos clássicos com personagens cativantes e reviravoltas emocionantes.",
-  "foto_autor": "/autores/autor13.jpg",
+  "foto_autor": "/autores/Hannah Nicole Maehrer.jpg",
   "autor": "Hannah Nicole Maehrer",
   "biografiaAutor": "Hannah Nicole Maehrer é uma escritora americana que ganhou popularidade nas redes sociais com suas histórias criativas sobre vilões e fantasia. Seu estilo combina humor, romance e aventura, criando narrativas que desconstroem arquétipos tradicionais de contos de fadas. Assistente do Vilão, seu livro de estreia, viralizou no TikTok e conquistou leitores ao redor do mundo com sua abordagem única e carismática do gênero fantasia romântica.",
   "capa_livro": "/livros/livro13.png"
@@ -122,7 +122,7 @@
   "id": "14",
   "titulo": "Textos Cruéis Demais Para Serem Lidos Rapidamente: Onde Dorme o Amor",
   "descricao": "Uma coletânea de textos poéticos que exploram o amor em suas formas mais complexas e dolorosas. Com palavras que cortam fundo, o livro aborda relacionamentos tóxicos, despedidas necessárias, cura emocional e a busca por amor-próprio. Cada texto é uma reflexão crua e honesta sobre sentimentos que muitas vezes preferimos não nomear. A obra convida o leitor a olhar para suas próprias feridas com coragem e compaixão, reconhecendo que onde dorme o amor também habitam a dor e a transformação.",
-  "foto_autor": "/autores/autor14.jpg",
+  "foto_autor": "/autores/Igor Pires.jpg",
   "autor": "Igor Pires",
   "biografiaAutor": "Igor Pires é um jovem escritor brasileiro conhecido por suas reflexões poéticas sobre amor, perda e existência. Sua escrita direta e emocionalmente intensa ressoa especialmente com leitores jovens que buscam validação para suas próprias experiências emocionais. Através das redes sociais e de suas publicações, Pires construiu uma comunidade de leitores que se identificam com sua linguagem crua e autêntica sobre os dilemas do coração.",
   "capa_livro": "/livros/livro14.png"
@@ -131,7 +131,7 @@
   "id": "15",
   "titulo": "Carmilla",
   "descricao": "Laura vive isolada em um castelo na Áustria quando uma misteriosa jovem chamada Carmilla aparece após um acidente de carruagem. A beleza e o charme da visitante encantam Laura, e uma amizade intensa rapidamente se desenvolve. Mas eventos estranhos começam a acontecer: Laura tem sonhos perturbadores, sua saúde deteriora, e mortes inexplicáveis ocorrem na região. Um dos primeiros romances góticos sobre vampirismo, publicado antes de Drácula, Carmilla é uma história atmosférica sobre sedução, terror e desejo proibido.",
-  "foto_autor": "/autores/autor15.jpg",
+  "foto_autor": "/autores/Sheriden Le Fanu.png",
   "autor": "Sheridan Le Fanu",
   "biografiaAutor": "Joseph Sheridan Le Fanu (1814-1873) foi um escritor irlandês pioneiro do horror gótico e do romance de mistério. Conhecido por suas histórias atmosféricas repletas de suspense psicológico, ele influenciou profundamente a literatura de terror vitoriana. Carmilla, publicada em 1872, é considerada sua obra-prima e um marco na ficção vampírica. Le Fanu tinha talento especial para criar ambientações sombrias e explorar os medos inconscientes, consolidando-se como um dos mestres do horror literário.",
   "capa_livro": "/livros/livro15.png"
@@ -140,7 +140,7 @@
   "id": "16",
   "titulo": "Dias Perfeitos",
   "descricao": "Uma coleção de momentos cotidianos transformados em experiências extraordinárias através da atenção plena e da gratidão. O livro celebra a beleza das coisas simples: uma xícara de café pela manhã, uma conversa sincera, o silêncio confortável. Através de reflexões delicadas e observações poéticas, a obra ensina a reconhecer e criar dias perfeitos, não pela ausência de problemas, mas pela presença de pequenos prazeres e pela capacidade de estar verdadeiramente presente. Uma leitura reconfortante sobre a arte de viver bem.",
-  "foto_autor": "/autores/autor16.jpg",
+  "foto_autor": "/autores/Raphael Montes.jpg",
   "autor": "Raphael Montes",
   "biografiaAutor": "Raphael Montes é um escritor brasileiro nascido em 1990, no Rio de Janeiro. Formado em Direito, ele se destacou na literatura com romances que misturam suspense, thriller psicológico e crítica social. Suas obras, como Suicidas e Bom Dia, Verônica, foram adaptadas para o audiovisual e conquistaram reconhecimento nacional e internacional. Montes é conhecido por sua habilidade em criar narrativas tensas e personagens complexos, explorando os aspectos mais sombrios da natureza humana.",
   "capa_livro": "/livros/livro16.png"
@@ -149,7 +149,7 @@
   "id": "17",
   "titulo": "Ninguém Vai Te Ouvir Gritar",
   "descricao": "Um thriller psicológico perturbador sobre isolamento, medo e sobrevivência. A protagonista se vê presa em uma situação terrível onde gritar por ajuda é inútil. Enquanto luta contra o tempo e contra seus próprios demônios internos, ela precisa encontrar forças para escapar de um pesadelo que parece não ter fim. Com reviravoltas chocantes e uma atmosfera claustrofóbica, o livro explora os limites do desespero humano e a determinação para sobreviver contra todas as probabilidades.",
-  "foto_autor": "/autores/autor17.jpg",
+  "foto_autor": "",
   "autor": "Autor Desconhecido",
   "biografiaAutor": "Este thriller intenso é obra de um autor que prefere manter sua identidade em segredo, deixando que a história fale por si mesma. Com uma narrativa que mantém o leitor constantemente tenso, o autor demonstra domínio sobre os elementos do suspense psicológico e do horror.",
   "capa_livro": "/livros/livro17.png"
@@ -158,7 +158,7 @@
   "id": "18",
   "titulo": "O Que o Sol Faz Com as Flores",
   "descricao": "Uma jornada poética de crescimento, cura e renovação. Através de poemas divididos em seções que representam as estações do ano, o livro acompanha o processo de florescer após períodos de escuridão. Com uma linguagem imagética e emocionalmente ressonante, a obra explora temas como amor, perda, identidade e esperança. As palavras brotam como sementes plantadas em solo fértil, lembrando ao leitor que, assim como as flores precisam do sol para crescer, nós precisamos de tempo e paciência para nos curar e prosperar.",
-  "foto_autor": "/autores/autor18.jpg",
+  "foto_autor": "/autores/Rupi Kaur.jpg",
   "autor": "Rupi Kaur",
   "biografiaAutor": "Rupi Kaur é uma poetisa, ilustradora e performer canadense-indiana nascida em 1992. Ela revolucionou a poesia contemporânea ao popularizar o formato de poemas curtos acompanhados de ilustrações minimalistas, alcançando milhões de leitores através das redes sociais. Suas obras, incluindo Outros Jeitos de Usar a Boca e O Que o Sol Faz Com as Flores, abordam temas como feminismo, trauma, amor e cura. Kaur é reconhecida por dar voz a experiências universais através de uma linguagem acessível e profundamente pessoal.",
   "capa_livro": "/livros/livro18.png"
@@ -167,7 +167,7 @@
   "id": "19",
   "titulo": "Dragão Vermelho",
   "descricao": "Will Graham, um ex-agente do FBI com habilidade única para entrar na mente de serial killers, é chamado de volta para investigar um assassino brutal conhecido como 'O Fada dos Dentes'. Atormentado por suas experiências passadas e pela necessidade de consultar o psiquiatra canibal Hannibal Lecter na prisão, Will mergulha em uma caçada psicológica intensa. O assassino, obcecado pela pintura 'O Grande Dragão Vermelho', comete crimes cada vez mais perturbadores. Um thriller psicológico magistral que estabeleceu os alicerces para O Silêncio dos Inocentes.",
-  "foto_autor": "/autores/autor7.jpg",
+  "foto_autor": "/autores/Thomas Harris.jpg",
   "autor": "Thomas Harris",
   "biografiaAutor": "Thomas Harris é um escritor americano nascido em 1940, no Tennessee. Jornalista por formação, ele se tornou mundialmente famoso por criar o personagem Hannibal Lecter, um dos vilões mais icônicos da literatura e do cinema. Harris é mestre em construir suspense psicológico e criar atmosferas perturbadoras. Suas obras revolucionaram o gênero thriller e influenciaram gerações de escritores.",
   "capa_livro": "/livros/livro19.png"
@@ -176,7 +176,7 @@
   "id": "20",
   "titulo": "Todas as Dores de Que Me Libertei e Sobrevivi",
   "descricao": "Um relato poético e visceral sobre superação de traumas, relacionamentos tóxicos e a jornada de reconstrução pessoal. Através de textos honestos e emocionalmente crus, o livro narra o processo de se libertar de dores que pareciam permanentes. Cada página é um testemunho de resiliência, mostrando que é possível sobreviver ao que parecia insuportável. Uma obra catártica para quem busca validação em suas próprias lutas e inspiração para seguir em frente, mais forte e consciente.",
-  "foto_autor": "/autores/autor20.jpg",
+  "foto_autor": "",
   "autor": "Diversos Autores",
   "biografiaAutor": "Esta coletânea reúne vozes de diferentes autores que compartilham suas experiências de dor, cura e transformação. Com sensibilidade e coragem, os textos oferecem conforto e esperança para leitores que enfrentam suas próprias batalhas internas, criando uma rede de empatia e compreensão mútua.",
   "capa_livro": "/livros/livro20.png"
@@ -185,7 +185,7 @@
   "id": "21",
   "titulo": "Tudo Que Meu Coração Grita",
   "descricao": "Uma explosão de emoções traduzidas em palavras. Este livro reúne poemas e textos sobre tudo aquilo que gritamos por dentro, mas raramente expressamos em voz alta: amor não correspondido, raiva reprimida, sonhos silenciados, esperanças secretas. Com uma linguagem intensa e autêntica, a obra dá voz aos sentimentos mais profundos e contraditórios da experiência humana. É um grito de liberdade, um manifesto emocional para quem carrega tempestades dentro do peito e precisa deixar que elas troveem.",
-  "foto_autor": "/autores/autor21.jpg",
+  "foto_autor": "",
   "autor": "Autor Contemporâneo",
   "biografiaAutor": "Um poeta da nova geração que captura a intensidade emocional da juventude contemporânea. Através de uma linguagem direta e apaixonada, o autor conecta-se com leitores que buscam expressão autêntica para seus próprios sentimentos complexos e muitas vezes contraditórios.",
   "capa_livro": "/livros/livro21.png"
@@ -194,7 +194,7 @@
   "id": "22",
   "titulo": "Harry Potter e as Relíquias da Morte",
   "descricao": "No capítulo final da saga, Harry Potter enfrenta seu destino. Com Voldemort dominando o mundo bruxo, Harry, Rony e Hermione abandonam Hogwarts para uma perigosa missão: encontrar e destruir as Horcruxes, objetos que contêm fragmentos da alma do Lorde das Trevas. Entre sacrifícios, revelações devastadoras sobre o passado e batalhas épicas, os três amigos descobrem o verdadeiro poder do amor e da lealdade. A guerra final entre o bem e o mal culmina em Hogwarts, onde heróis nascem e lendas se consolidam. Um desfecho emocionante para uma das sagas mais amadas da literatura.",
-  "foto_autor": "/autores/autor22.jpg",
+  "foto_autor": "/autores/J.K. Rowling.jpg",
   "autor": "J.K. Rowling",
   "biografiaAutor": "J.K. Rowling é uma escritora britânica nascida em 1965, criadora da série Harry Potter, um dos fenômenos literários mais bem-sucedidos de todos os tempos. A ideia surgiu durante uma viagem de trem em 1990, e após anos de rejeições, o primeiro livro foi publicado em 1997. A saga conquistou centenas de milhões de leitores globalmente, foi adaptada para o cinema e transformou Rowling em uma das autoras mais influentes do século XXI. Além de Harry Potter, ela escreve romances adultos e é conhecida por sua filantropia.",
   "capa_livro": "/livros/livro22.png"
@@ -203,7 +203,7 @@
   "id": "23",
   "titulo": "It: A Coisa",
   "descricao": "Na pequena cidade de Derry, no Maine, crianças estão desaparecendo. Um grupo de sete amigos conhecidos como o Clube dos Perdedores descobre que o responsável é uma entidade maligna ancestral que assume a forma dos medos mais profundos de suas vítimas, frequentemente aparecendo como Pennywise, o palhaço dançarino. Após enfrentá-la na infância, eles fazem um juramento de retornar se o mal voltar. 27 anos depois, eles são chamados de volta para uma batalha final contra seus próprios traumas e contra a criatura que assombra Derry. Uma obra monumental sobre amizade, coragem e o poder dos medos da infância.",
-  "foto_autor": "/autores/autor23.jpg",
+  "foto_autor": "/autores/Stephen King.jpg",
   "autor": "Stephen King",
   "biografiaAutor": "Stephen King, nascido em 1947 no Maine, é um dos autores mais prolíficos e bem-sucedidos da literatura de terror e suspense. Com mais de 60 romances e 200 contos publicados, suas obras venderam mais de 350 milhões de cópias mundialmente. King é mestre em explorar os medos humanos mais profundos e criar personagens memoráveis. Suas histórias foram adaptadas inúmeras vezes para cinema e TV. Ganhador de prêmios literários prestigiosos, ele é considerado o rei moderno do horror.",
   "capa_livro": "/livros/livro23.png"
@@ -212,7 +212,7 @@
   "id": "24",
   "titulo": "Fim de Jogo",
   "descricao": "Um thriller psicológico intenso onde um investigador obcecado persegue um serial killer que transforma assassinatos em um jogo macabro. Cada crime deixa pistas elaboradas que desafiam a inteligência do protagonista, criando um duelo de mentes onde as regras mudam constantemente. Entre reviravoltas chocantes e uma corrida contra o tempo, o livro explora até onde alguém está disposto a ir para vencer um jogo onde as apostas são vidas humanas. Uma narrativa tensa que mantém o leitor sem fôlego até a última página.",
-  "foto_autor": "/autores/autor24.jpg",
+  "foto_autor": "",
   "autor": "Autor de Thriller",
   "biografiaAutor": "Especialista em thrillers psicológicos e narrativas de suspense, este autor domina a arte de criar tensão constante e personagens complexos que desafiam as fronteiras entre bem e mal. Com uma habilidade única para construir reviravoltas imprevisíveis, suas obras prendem leitores do início ao fim.",
   "capa_livro": "/livros/livro24.png"
@@ -221,7 +221,7 @@
   "id": "25",
   "titulo": "O Visitante",
   "descricao": "Quando um respeitado professor é acusado de um crime hediondo, todas as evidências apontam para sua culpa: DNA, impressões digitais, testemunhas. Mas ele tem um álibi incontestável: estava em outro lugar, e também há provas disso. Como alguém pode estar em dois lugares ao mesmo tempo? O detetive Ralph Anderson precisa aceitar que algo sobrenatural está acontecendo. Uma entidade maligna que assume a forma de pessoas inocentes está à solta. King combina suspense policial com horror sobrenatural em uma narrativa que questiona a natureza da realidade e do mal.",
-  "foto_autor": "/autores/autor23.jpg",
+  "foto_autor": "/autores/Stephen King.jpg",
   "autor": "Stephen King",
   "biografiaAutor": "Stephen King, nascido em 1947 no Maine, é um dos autores mais prolíficos e bem-sucedidos da literatura de terror e suspense. Com mais de 60 romances e 200 contos publicados, suas obras venderam mais de 350 milhões de cópias mundialmente. King é mestre em explorar os medos humanos mais profundos e criar personagens memoráveis.",
   "capa_livro": "/livros/livro25.png"
@@ -230,7 +230,7 @@
   "id": "26",
   "titulo": "Textos Cruéis Demais Para Serem Lidos Rapidamente",
   "descricao": "Uma coletânea de textos curtos e intensos que exploram as complexidades do amor, da dor e das relações humanas. Cada página traz reflexões cruas e honestas sobre sentimentos que todos vivenciamos mas raramente conseguimos expressar. O título é um convite: estes textos exigem pausa, respiração, digestão emocional. Não são para serem consumidos rapidamente, mas saboreados e sentidos profundamente. Uma obra que ressoa especialmente com quem carrega feridas emocionais e busca palavras que validem suas experiências.",
-  "foto_autor": "/autores/autor14.jpg",
+  "foto_autor": "/autores/Igor Pires.jpg",
   "autor": "Igor Pires",
   "biografiaAutor": "Igor Pires é um jovem escritor brasileiro conhecido por suas reflexões poéticas sobre amor, perda e existência. Sua escrita direta e emocionalmente intensa ressoa especialmente com leitores jovens que buscam validação para suas próprias experiências emocionais.",
   "capa_livro": "/livros/livro26.png"
@@ -239,7 +239,7 @@
   "id": "27",
   "titulo": "You: Você",
   "descricao": "Joe Goldberg é um gerente de livraria carismático e obcecado. Quando conhece a aspirante a escritora Beck, ele se convence de que estão destinados a ficarem juntos. Usando redes sociais e tecnologia moderna, Joe a espiona constantemente, remove obstáculos de seu caminho e manipula situações para se aproximar dela. Narrado pela perspectiva perturbadora de Joe, o livro explora os limites entre amor e obsessão, mostrando como a tecnologia facilita comportamentos predatórios. Um thriller psicológico viciante que questiona até onde o amor pode justificar ações terríveis.",
-  "foto_autor": "/autores/autor27.jpg",
+  "foto_autor": "/autores/Caroline Kepnes.jpg",
   "autor": "Caroline Kepnes",
   "biografiaAutor": "Caroline Kepnes é uma escritora americana nascida em 1976. Antes de se tornar romancista, trabalhou como roteirista para séries de TV. Seu livro de estreia, You, publicado em 2014, tornou-se um fenômeno após a adaptação para série da Netflix. Kepnes é conhecida por criar narrativas psicológicas perturbadoras que exploram obsessão, tecnologia e os aspectos mais sombrios das relações modernas. Sua habilidade em fazer leitores simpatizarem com protagonistas moralmente questionáveis é marca registrada de seu estilo.",
   "capa_livro": "/livros/livro27.png"
@@ -248,7 +248,7 @@
   "id": "28",
   "titulo": "Os Dois Morrem no Final",
   "descricao": "Em um futuro próximo, uma empresa chamada Morte-Casting liga para pessoas nas primeiras horas da manhã para avisá-las que morrerão naquele dia. Mateo e Rufus recebem a ligação no mesmo dia e, através de um aplicativo, decidem passar suas últimas horas juntos como 'Últimos Amigos'. Durante um dia intenso e emocionante, eles vivem aventuras, confrontam medos e descobrem que conexões verdadeiras podem acontecer nos momentos mais improváveis. Uma história comovente sobre mortalidade, amizade, amor e a importância de viver plenamente cada momento.",
-  "foto_autor": "/autores/autor28.jpg",
+  "foto_autor": "/autores/Adam Silvera.jpg",
   "autor": "Adam Silvera",
   "biografiaAutor": "Adam Silvera é um escritor americano nascido em 1990, no Bronx, Nova York. Conhecido por seus romances jovem-adultos que abordam temas como LGBTQ+, mortalidade, identidade e amor, ele conquistou milhões de leitores globalmente. Silvera é celebrado por sua habilidade em criar histórias emocionalmente impactantes com personagens diversos e autênticos. Seus livros, incluindo Os Dois Morrem no Final e What If It's Us, frequentemente exploram a experiência de jovens queer enfrentando questões profundas sobre vida e morte. Ele também trabalhou na indústria editorial antes de se dedicar completamente à escrita.",
   "capa_livro": "/livros/livro28.jpg"
@@ -258,7 +258,7 @@
   "id": "29",
   "titulo": "Um Por Um",
   "descricao": "Um grupo de colegas de trabalho de uma startup se reúne em um luxuoso chalé isolado nas montanhas para um retiro corporativo. Quando uma tempestade de neve os deixa completamente isolados e desconectados do mundo exterior, membros do grupo começam a morrer em circunstâncias misteriosas. Com a paranoia crescendo e a confiança se desfazendo, todos se tornam suspeitos. Inspirado nos clássicos de Agatha Christie, este thriller claustrofóbico mantém o leitor adivinhando até a última página, provando que às vezes os maiores perigos vêm daqueles mais próximos de nós.",
-  "foto_autor": "/autores/autor29.jpg",
+  "foto_autor": "/autores/Ruth Ware.jpg",
   "autor": "Ruth Ware",
   "biografiaAutor": "Ruth Ware é uma escritora britânica nascida em 1977, conhecida por seus thrillers psicológicos atmosféricos. Antes de se tornar autora em tempo integral, trabalhou como garçonete, livraria e professora. Suas obras, incluindo A Mulher na Cabine 10 e The Turn of the Key, são best-sellers internacionais que combinam suspense clássico com narrativas contemporâneas. Ware é frequentemente comparada a Agatha Christie por sua habilidade em criar mistérios intricados com reviravoltas surpreendentes e ambientações claustrofóbicas que intensificam a tensão.",
   "capa_livro": "/livros/livro29.jpg"
@@ -267,7 +267,7 @@
   "id": "30",
   "titulo": "A Contadora de Histórias",
   "descricao": "Sage Singer trabalha como padeira durante a noite, escondendo-se do mundo após uma tragédia pessoal. Quando Josef Weber, um idoso respeitado na comunidade, revela um segredo sombrio sobre seu passado nazista e pede que Sage o ajude a morrer, ela se vê em um dilema moral impossível. Enquanto Josef conta sua história, Sage também narra a de sua avó, uma sobrevivente do Holocausto. O livro entrelaça três narrativas poderosas explorando temas de perdão, culpa, justiça e a complexidade da natureza humana. Uma reflexão profunda sobre até onde vai nossa capacidade de perdoar o imperdoável.",
-  "foto_autor": "/autores/autor30.jpg",
+  "foto_autor": "/autores/Jodi Picoult.jpg",
   "autor": "Jodi Picoult",
   "biografiaAutor": "Jodi Picoult é uma escritora americana nascida em 1966, conhecida por seus romances que exploram dilemas morais complexos e questões sociais contemporâneas. Formada em Princeton, ela publicou mais de 25 romances, muitos dos quais se tornaram best-sellers do New York Times. Picoult é reconhecida por sua extensa pesquisa, narrativas multiperspectivas e habilidade em apresentar todos os lados de questões controversas. Seus livros frequentemente abordam temas como ética, justiça, família e escolhas impossíveis, provocando reflexões profundas nos leitores.",
   "capa_livro": "/livros/livro30.jpg"
@@ -276,7 +276,7 @@
   "id": "31",
   "titulo": "O Menino que Desenhava Monstros",
   "descricao": "Jack Peter Keenan é um menino de dez anos com síndrome de Asperger que não sai de casa desde um incidente traumático na praia anos atrás. Ele passa seus dias desenhando obsessivamente criaturas monstruosas que emergem do oceano. Mas quando seus desenhos começam a se manifestar de formas perturbadoras, sua família percebe que algo sinistro está acontecendo. As linhas entre imaginação e realidade se confundem enquanto forças sobrenaturais ameaçam a segurança de todos. Um horror psicológico atmosférico que explora medos infantis, trauma e o poder inexplicável da criatividade.",
-  "foto_autor": "/autores/autor31.jpg",
+  "foto_autor": "/autores/Keith Donohue.jpg",
   "autor": "Keith Donohue",
   "biografiaAutor": "Keith Donohue é um escritor americano conhecido por seus romances que misturam realismo com elementos fantásticos e sobrenaturais. Seu estilo único combina prosa lírica com narrativas envolventes que exploram temas de identidade, memória e os mistérios da infância. Donohue tem talento especial para criar atmosferas inquietantes e personagens complexos, particularmente crianças que enfrentam circunstâncias extraordinárias. Seus livros incluem The Stolen Child e Angels of Destruction, todos celebrados pela crítica.",
   "capa_livro": "/livros/livro31.jpg"
@@ -285,7 +285,7 @@
   "id": "32",
   "titulo": "O Massacre da Família Hope",
   "descricao": "Em uma noite de Natal, a família Hope é brutalmente assassinada em sua própria casa. Décadas depois, uma jornalista investigativa obcecada pelo caso não resolvido descobre novas evidências que sugerem que a história oficial pode estar completamente errada. Enquanto ela desenterra segredos profundamente enterrados, ela percebe que está sendo seguida e que algumas pessoas farão qualquer coisa para manter a verdade escondida. Um thriller de true crime fictício que explora conspiração, corrupção e a obsessão perigosa pela verdade. Baseado em crimes reais, o livro questiona até onde devemos ir em busca de justiça.",
-  "foto_autor": "/autores/autor32.jpg",
+  "foto_autor": "",
   "autor": "Autor de True Crime",
   "biografiaAutor": "Especializado em thrillers inspirados em casos criminais reais, este autor combina pesquisa meticulosa com narrativa envolvente para criar histórias que prendem e perturbam. Com atenção aos detalhes forenses e psicológicos, suas obras exploram os aspectos mais sombrios da natureza humana e as falhas dos sistemas de justiça.",
   "capa_livro": "/livros/livro32.jpg"
@@ -294,7 +294,7 @@
   "id": "33",
   "titulo": "Pedra Papel Tesoura",
   "descricao": "Um casal em crise decide passar um fim de semana em uma casa isolada na Escócia para tentar salvar seu casamento. Mas à medida que antigas mentiras e segredos emergem, eles percebem que não estão sozinhos. Narrado por três perspectivas diferentes - marido, esposa e uma voz misteriosa - o livro revela camadas de engano, manipulação e vingança. Como no jogo pedra-papel-tesoura, cada personagem tem seus próprios motivos e estratégias, e ninguém pode confiar em ninguém. Um thriller psicológico com reviravoltas devastadoras que redefinem tudo que você pensava saber.",
-  "foto_autor": "/autores/autor33.jpg",
+  "foto_autor": "/autores/Alice Feeney.jpg",
   "autor": "Alice Feeney",
   "biografiaAutor": "Alice Feeney é uma escritora e jornalista britânica, ex-produtora da BBC. Seus thrillers psicológicos são conhecidos por reviravoltas impressionantes, narrativas não confiáveis e finais que deixam os leitores sem fôlego. Feeney tem uma habilidade única para construir suspense gradualmente enquanto planta pistas sutis que só fazem sentido em retrospecto. Suas obras, incluindo Sometimes I Lie e His & Hers, foram best-sellers internacionais traduzidos para mais de 25 idiomas. Ela é mestre em criar atmosferas claustrofóbicas e personagens moralmente ambíguos.",
   "capa_livro": "/livros/livro33.jpg"
@@ -303,7 +303,7 @@
   "id": "34",
   "titulo": "Mindhunter: O Primeiro Caçador de Serial Killers Americano",
   "descricao": "John Douglas, agente pioneiro do FBI, revolucionou a investigação criminal ao desenvolver técnicas de perfilação psicológica de serial killers. Neste livro autobiográfico fascinante, ele compartilha casos reais que investigou, entrevistas perturbadoras com alguns dos criminosos mais perigosos da América - incluindo Charles Manson, Ted Bundy e Ed Kemper - e os insights psicológicos que ajudaram a capturá-los. Douglas revela como entrar na mente de assassinos afetou sua própria psique e mudou para sempre a forma como crimes violentos são investigados. Uma leitura obrigatória para interessados em true crime e psicologia criminal.",
-  "foto_autor": "/autores/autor34.jpg",
+  "foto_autor": "/autores/John Douglas e Mark Olshaker.jpg",
   "autor": "John Douglas e Mark Olshaker",
   "biografiaAutor": "John Douglas é um ex-agente especial do FBI que serviu por 25 anos e é considerado o pioneiro da perfilação criminal moderna. Ele foi chefe da Unidade de Ciências Comportamentais e entrevistou dezenas de serial killers para desenvolver técnicas investigativas revolucionárias. Mark Olshaker é um autor e cineasta premiado que colabora com Douglas. Juntos, escreveram vários best-sellers sobre crime e investigação. O trabalho de Douglas inspirou filmes, séries (incluindo Mindhunter da Netflix) e mudou fundamentalmente a aplicação da lei nos EUA.",
   "capa_livro": "/livros/livro34.jpg"
@@ -312,7 +312,7 @@
   "id": "35",
   "titulo": "Filho Perfeito",
   "descricao": "Quando seu filho adolescente é acusado de um crime terrível, uma mãe precisa decidir até onde está disposta a ir para protegê-lo. Enquanto evidências se acumulam e a pressão aumenta, ela questiona o quanto realmente conhece seu próprio filho. Entre lealdade familiar e justiça, entre amor incondicional e verdade devastadora, ela navega por um labirinto moral sem saídas fáceis. O livro explora os limites do amor materno, segredos familiares e as consequências de escolhas impossíveis. Um thriller psicológico emocionante que questiona: até onde você iria por alguém que ama?",
-  "foto_autor": "/autores/autor35.jpg",
+  "foto_autor": "",
   "autor": "Autor de Suspense Familiar",
   "biografiaAutor": "Especializado em thrillers que exploram dinâmicas familiares complexas e dilemas morais impossíveis, este autor cria narrativas que questionam lealdades e testam os limites do amor. Com personagens profundamente humanos e situações que parecem não ter respostas certas, suas obras provocam reflexões sobre família, moralidade e as escolhas que nos definem.",
   "capa_livro": "/livros/livro35.jpg"
@@ -321,7 +321,7 @@
   "id": "36",
   "titulo": "Quem É Você, Alasca?",
   "descricao": "Miles Halter está obcecado com últimas palavras famosas e decide deixar a Flórida para estudar em um internato no Alabama em busca do que o poeta François Rabelais chamou de 'Grande Talvez'. Lá, ele conhece Alasca Young - linda, inteligente, engraçada e profundamente misteriosa. Miles se apaixona por ela enquanto ela o introduz a um mundo de travessuras noturnas e reflexões filosóficas. Mas quando uma tragédia abala o campus, Miles e seus amigos precisam decifrar o enigma de quem Alasca realmente era. Um romance comovente sobre amor, perda, culpa e a busca por significado.",
-  "foto_autor": "/autores/autor36.jpg",
+  "foto_autor": "/autores/John Green.jpg",
   "autor": "John Green",
   "biografiaAutor": "John Green é um escritor americano nascido em 1977, autor de best-sellers jovem-adultos aclamados pela crítica. Formado em Literatura Inglesa e Estudos Religiosos, ele trabalhou como capelão em um hospital infantil antes de se tornar escritor em tempo integral. Suas obras, incluindo A Culpa é das Estrelas e Cidades de Papel, venderam milhões de cópias e foram adaptadas para o cinema. Green é conhecido por criar histórias emocionalmente ressonantes que exploram existencialismo, mortalidade e o que significa ser humano. Ele também é YouTuber educacional premiado.",
   "capa_livro": "/livros/livro36.jpg"

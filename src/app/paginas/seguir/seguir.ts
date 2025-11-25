@@ -29,98 +29,121 @@ interface UsuarioLogado {
 export class SeguirComponent implements OnInit {
 
   usuarioLogado: UsuarioLogado | null = null;
-
   sugestoes: Usuario[] = [];
   carregando: boolean = true;
   erro: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.carregarPerfil();
     this.carregarSugestoes();
   }
 
+  // ================== PERFIL ====================
   carregarPerfil() {
-  const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
-  if (!token) {
-    console.error("Nenhum token encontrado no localStorage!");
-    this.erro = 'Usuário não autenticado.';
-    this.carregando = false;
-    return;
-  }
-
-  this.http.get<any>('http://localhost:5010/usuario/perfil', {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  })
-  .subscribe({
-    next: (res) => {
-      console.log("Resposta da API:", res);
-
-      this.usuarioLogado = {
-        id: res.id,
-        nome: res.nome,
-        username: res.username ?? '',
-        fotoPerfil: res.imagem_perfil
-          ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}`
-          : '/Default_pfp.jpg'
-      };
-
+    if (!token) {
+      this.erro = 'Usuário não autenticado.';
       this.carregando = false;
-    },
-    error: (err) => {
-      console.error('Erro ao carregar perfil:', err);
-      this.erro = 'Erro ao carregar perfil (token inválido ou expirado).';
-      this.carregando = false;
+      return;
     }
-  });
-}
 
-
-  carregarSugestoes(): void {
-    this.carregando = true;
-
-    setTimeout(() => {
-      this.sugestoes = [
-        {
-          id: 1,
-          nomeUsuario: 'Allan Lopes',
-          username: '@allanlopes',
-          perfilImagem: '/Allan Lopes.jpg',
-          seguindo: false
+    this.http.get<any>('http://localhost:5010/usuario/perfil', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .subscribe({
+        next: (res) => {
+          this.usuarioLogado = {
+            id: res.id,
+            nome: res.nome,
+            username: res.username,
+            fotoPerfil: res.imagem_perfil
+              ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}`
+              : '/Default_pfp.jpg'
+          };
+          this.carregando = false;
         },
-        {
-          id: 2,
-          nomeUsuario: 'Lethicia Nobre',
-          username: '@lethicianobre',
-          perfilImagem: '/Lethicia-Nobre.png',
-          seguindo: false
-        },
-        {
-          id: 3,
-          nomeUsuario: 'Ana Carolina',
-          username: '@anacarolina',
-          perfilImagem: '/Ana Carolina.jpg',
-          seguindo: false
-        },
-        {
-          id: 4,
-          nomeUsuario: 'Thalyta Cristina',
-          username: '@thalytacristina',
-          perfilImagem: '/Thalyta Cristina.jpg',
-          seguindo: false
+        error: (err) => {
+          console.error('Erro ao carregar perfil:', err);
+          this.erro = 'Erro ao carregar perfil.';
+          this.carregando = false;
         }
-      ];
-
-      this.carregando = false;
-    }, 500);
+      });
   }
 
+  // ================== SUGESTÕES ====================
+  carregarSugestoes(): void {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      this.erro = "Usuário não autenticado.";
+      return;
+    }
+
+    this.http.get<any>('http://localhost:5010/usuario/show-all-usuarios', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .subscribe({
+        next: (res) => {
+
+          console.log(res.listaUsuarios);
+          this.sugestoes = res.listaUsuarios.map((u: any) => ({
+            id: u.id,
+            nomeUsuario: u.nome,
+            username: u.username,
+            perfilImagem: u.imagem_perfil
+              ? `http://localhost:5010/storage/perfil/${u.imagem_perfil}`
+              : '/Default_pfp.jpg',
+            seguindo: false
+          }));
+          this.carregando = false;
+        },
+        error: (err) => {
+          console.error("Erro ao carregar sugestões:", err);
+          this.erro = "Erro ao carregar sugestões";
+          this.carregando = false;
+        }
+      });
+  }
+
+  // ================== SEGUIR ====================
   seguirUsuario(usuario: Usuario): void {
-    usuario.seguindo = true;
-    console.log(`Seguindo ${usuario.nomeUsuario}`);
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      console.error('Token não encontrado');
+      return;
+    }
+
+    console.log("Enviando:", { id_seguido: usuario.id });
+
+    this.http.post(
+      'http://localhost:5010/usuario/seguir',
+      { id_seguido: usuario.id },
+      { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } }
+    ).subscribe({
+      next: () => {
+        usuario.seguindo = true;
+        console.log(`Agora você segue: ${usuario.nomeUsuario}`);
+      },
+      error: (err) => {
+        if (err.error?.mensagem) {
+          // Mostra o alert com a mensagem do backend
+          alert(err.error.mensagem);
+
+          // Atualiza o estado visual caso queira marcar como seguido
+          if (err.error.mensagem === 'Você já segue esse usuário.') {
+            usuario.seguindo = true;
+          }
+        } else {
+          console.error('Erro ao seguir usuário:', err);
+        }
+      }
+    });
+    ;
+    ;
   }
+
 }
