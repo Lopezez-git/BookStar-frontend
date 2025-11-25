@@ -19,9 +19,9 @@
     <!-- Usuário Logado -->
     <div class="usuario-logado" *ngIf="usuarioLogado">
       <img [src]="usuarioLogado.fotoPerfil" 
-           [alt]="usuarioLogado.nome" 
+           [alt]="usuarioLogado.username" 
            class="foto-perfil-grande">
-      <h2>{{ usuarioLogado.nome }}</h2>
+      <h2>{{ usuarioLogado.username }}</h2>
     </div>
 
     <!-- Título -->
@@ -55,7 +55,7 @@
         </div>
 
         <!-- Nome -->
-        <span class="nome-usuario">{{ usuario.nomeUsuario }}</span>
+        <span class="nome-usuario">{{ usuario.username }}</span>
 
       </div>
 

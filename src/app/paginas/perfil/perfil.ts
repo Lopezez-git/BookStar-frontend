@@ -22,6 +22,7 @@ interface Livro {
 export class Perfil implements OnInit {
 
   nomeUsuario: string = '';
+  usernameUsario: string ='';
   perfilImagem: string = '';
   seguidores: number = 0;
   seguindo: number = 0;
@@ -63,6 +64,7 @@ export class Perfil implements OnInit {
 
         console.log("Resposta da api: ", res.imagem_perfil);
         this.nomeUsuario = res.nome;
+        this.usernameUsario = res.username;
         this.perfilImagem = res.imagem_perfil
           ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}` : '/Default_pfp.jpg';
         this.seguidores = res.seguidores;
