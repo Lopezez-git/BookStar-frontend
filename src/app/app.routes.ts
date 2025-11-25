@@ -6,6 +6,7 @@ import { LivrosComponent } from './paginas/livros/livros';
 import { LivroComponent } from './paginas/livro/livro';
 import { AuthGuard } from './auth.guard';
 import { Perfil } from './paginas/perfil/perfil';
+import { SeguirComponent } from './paginas/seguir/seguir';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'livros', component: LivrosComponent },
    { path: 'livro/:id', component: LivroComponent },
-    { path: 'perfil', component: Perfil, canActivate: [AuthGuard] }
+    { path: 'perfil', component: Perfil, canActivate: [AuthGuard] },
+    {path: 'seguir', component: SeguirComponent}
 
 ];

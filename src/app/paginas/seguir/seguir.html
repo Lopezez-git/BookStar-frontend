@@ -1,0 +1,60 @@
+<app-auth-header></app-auth-header>
+
+<main class="seguir-page">
+  <div class="background-pattern"></div>
+
+  <!-- Loading -->
+  <div *ngIf="carregando" class="loading-container">
+    <p>Carregando...</p>
+  </div>
+
+  <!-- Erro -->
+  <div *ngIf="erro && !carregando" class="erro-container">
+    <p>{{ erro }}</p>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div *ngIf="!carregando && !erro" class="seguir-card">
+    
+    <!-- Usuário Logado -->
+    <div class="usuario-logado" *ngIf="usuarioLogado">
+      <img [src]="usuarioLogado.fotoPerfil" [alt]="usuarioLogado.nome" class="foto-perfil-grande">
+      <h2>{{ usuarioLogado.nome }}</h2>
+    </div>
+
+    <!-- Título -->
+    <h3 class="titulo-sugestoes">SUGESTÕES DE AMIZADES:</h3>
+
+    <!-- Lista de Sugestões -->
+    <div class="lista-sugestoes" *ngIf="sugestoes.length > 0">
+      
+      <div *ngFor="let usuario of sugestoes" class="sugestao-item">
+        
+        <!-- Foto com ícone de adicionar -->
+        <div class="foto-container">
+          <img [src]="usuario.fotoPerfil" [alt]="usuario.nome" class="foto-perfil-pequena">
+          
+          <!-- Ícone verde de adicionar - aparece apenas se não estiver seguindo -->
+          <button 
+            *ngIf="!usuario.seguindo" 
+            class="btn-add-icon"
+            (click)="seguirUsuario(usuario)"
+            [title]="'Seguir ' + usuario.nome">
+            <img src="/seguir (1).png" alt="Adicionar" class="icon-add">
+          </button>
+        </div>
+
+        <!-- Nome do usuário -->
+        <span class="nome-usuario">{{ usuario.nome }}</span>
+        
+      </div>
+
+    </div>
+
+    <!-- Mensagem quando não há sugestões -->
+    <div *ngIf="sugestoes.length === 0 && !carregando" class="sem-sugestoes">
+      <p>Não há sugestões de amizades no momento.</p>
+    </div>
+
+  </div>
+</main>
