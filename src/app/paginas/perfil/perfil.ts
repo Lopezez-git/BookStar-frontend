@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router'; // ← Adicione RouterLink aqui
+import { Router, RouterLink } from '@angular/router';
 
 interface Livro {
   id: number;
@@ -15,7 +15,7 @@ interface Livro {
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [CommonModule, RouterLink], // ← Adicione RouterLink aqui
+  imports: [CommonModule, RouterLink],
   templateUrl: './perfil.html',
   styleUrls: ['./perfil.css']
 })
@@ -96,6 +96,29 @@ export class Perfil implements OnInit {
     });
   }
 
+  // FUNÇÃO PARA REMOVER LIVRO
+  removerLivro(livro: Livro) {
+    if (!confirm(`Tem certeza que deseja remover "${livro.titulo}"?`)) {
+      return;
+    }
+
+    // Chama o backend para remover o livro
+    this.http.delete(`http://localhost:5010/usuario/biblioteca/${livro.id}`).subscribe({
+      next: () => {
+        console.log('Livro removido com sucesso!');
+        
+        // Remove da lista visual
+        this.livrosFiltrados = this.livrosFiltrados.filter(l => l.id !== livro.id);
+        
+        alert('Livro removido da sua biblioteca!');
+      },
+      error: (err) => {
+        console.error('Erro ao remover livro:', err);
+        alert('Erro ao remover livro. Tente novamente.');
+      }
+    });
+  }
+
   trocarFoto(event: any) {
     const arquivo = event.target.files[0];
     if (!arquivo) return;
@@ -103,7 +126,6 @@ export class Perfil implements OnInit {
     const formData = new FormData();
     formData.append('imagem', arquivo);
 
-    // Pré-visualização da imagem
     const leitor = new FileReader();
     leitor.onload = () => (this.previewImagem = leitor.result as string);
     leitor.readAsDataURL(arquivo);
@@ -111,10 +133,7 @@ export class Perfil implements OnInit {
     this.http.put('http://localhost:5010/usuario/perfil/capa', formData).subscribe({
       next: (res: any) => {
         console.log("Upload OK:", res);
-
-        // Atualiza a foto que veio do backend
         this.perfilImagem = res.usuario.imagem_url;
-
         alert("Foto atualizada com sucesso!");
       },
       error: (err) => {
