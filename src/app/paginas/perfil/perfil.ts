@@ -12,6 +12,7 @@ interface Livro {
   status: 'lido' | 'queroLer' | 'lendo' | 'naoFinalizado';
 }
 
+
 @Component({
   selector: 'app-perfil',
   standalone: true,
