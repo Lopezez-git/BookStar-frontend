@@ -9,6 +9,7 @@ interface Livro {
   autor: string;
   capa: string;
   avaliacao: number;
+  comentario: string;
   status: string;
 }
 
@@ -77,27 +78,19 @@ export class Perfil implements OnInit {
 
     this.http.get<any>(url).subscribe({
       next: (res) => {
-        console.log('📦 Resposta completa do backend:', res);
-        
         const lista = res.livros || [];
-        console.log('📚 Lista de livros bruta:', lista);
 
-        this.livrosFiltrados = lista.map((l: any) => {
-          console.log(`📖 Livro: ${l.titulo}`);
-          console.log(`   ⭐ Avaliação recebida:`, l.avaliacao);
-          console.log(`   ⭐ Tipo:`, typeof l.avaliacao);
-          
-          return {
-            id: l.id,
-            titulo: l.titulo,
-            autor: l.autores,
-            capa: `http://localhost:5010${l.capa_url}`,
-            avaliacao: l.avaliacao || 0,
-            status: l.status
-          };
-        });
+        this.livrosFiltrados = lista.map((l: any) => ({
+          id: l.id,
+          titulo: l.titulo,
+          autor: l.autores,
+          capa: `http://localhost:5010${l.capa_url}`,
+          avaliacao: l.avaliacao || 0,
+          comentario: l.comentario || '',
+          status: l.status
+        }));
 
-        console.log('✅ Livros processados:', this.livrosFiltrados);
+        console.log('Livros processados:', this.livrosFiltrados);
       },
 
       error: (err) => {

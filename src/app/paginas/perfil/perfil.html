@@ -4,19 +4,8 @@
 
       <div class="perfil-left">
         <div class="foto-wrapper">
-
-          <!-- Aqui uso o operador (OU) para decidir qual imagem mostrar:
-          1. Se previewImagem existir (usuário escolheu uma foto) = MOSTRA ELA
-          2. Se não, tenta perfilImagem (foto que veio do backend) = MOSTRA ELA
-          3. Se não tem nenhuma das duas = MOSTRA a imagem padrão -->
-
-       <img [src]="previewImagem || perfilImagem || 'assets/default-avatar.png'" alt="Foto de perfil">
-
-          <!-- Input invisível que abre o seletor de arquivos
-          accept="image/*" = só aceita imagens (jpg, png, etc)
-          (change) = quando o usuário escolher um arquivo, chama a função trocarFoto()-->
-
-        <input type="file" accept="image/*" (change)="trocarFoto($event)">
+          <img [src]="previewImagem || perfilImagem || 'assets/default-avatar.png'" alt="Foto de perfil">
+          <input type="file" accept="image/*" (change)="trocarFoto($event)">
         </div>
 
         <h2 class="nome-user">{{ usernameUsario }}</h2>
@@ -41,7 +30,6 @@
             Estou lendo
           </button>
 
-          <!-- MUDOU AQUI: Reviews virou Seguindo e agora navega -->
           <button routerLink="/seguindo">
             Seguindo
           </button>
@@ -61,6 +49,11 @@
                   ★
                 </span>
               </div>
+
+              <!-- 🔥 COMENTÁRIO ADICIONADO -->
+              <p class="comentario" *ngIf="livro.comentario">
+                "{{ livro.comentario }}"
+              </p>
             </div>
           </div>
 
