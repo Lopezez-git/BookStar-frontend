@@ -9,6 +9,7 @@ interface Livro {
   autor: string;
   capa: string;
   avaliacao: number;
+  comentario: string;
   status: string;
 }
 
@@ -85,12 +86,15 @@ export class Perfil implements OnInit {
           autor: l.autores,
           capa: `http://localhost:5010${l.capa_url}`,
           avaliacao: l.avaliacao || 0,
+          comentario: l.comentario || '',
           status: l.status
         }));
+
+        console.log('Livros processados:', this.livrosFiltrados);
       },
 
       error: (err) => {
-        console.error("Erro ao carregar livros:", err);
+        console.error("❌ Erro ao carregar livros:", err);
         this.livrosFiltrados = [];
       }
     });
