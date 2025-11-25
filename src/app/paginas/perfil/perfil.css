@@ -150,6 +150,41 @@
 }
 
 .stars {
+<<<<<<< HEAD
+  color: gold;
+}
+
+/* Botão Remover Livro (Lixeira) */
+.btn-remover-livro {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ff6b6b;
+  padding: 8px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.btn-remover-livro:hover {
+  background: rgba(255, 107, 107, 0.2);
+  transform: scale(1.1);
+}
+
+.btn-remover-livro:active {
+  transform: scale(0.95);
+}
+
+.btn-remover-livro svg {
+  width: 20px;
+  height: 20px;
+=======
   display: flex;
   gap: 2px;
   font-size: 18px;
@@ -162,4 +197,5 @@
 
 .stars span.filled {
   color: gold; /* Estrela preenchida - dourado */
+>>>>>>> 0c00337f4aa9ee333d375f380d33f304d8d0ca2a
 }
