@@ -41,8 +41,9 @@
             Estou lendo
           </button>
 
-          <button [class.ativo]="abaAtiva === 'reviews'" (click)="mudarAba('reviews')">
-            Reviews
+          <!-- MUDOU AQUI: Reviews virou Seguindo e agora navega -->
+          <button routerLink="/seguindo">
+            Seguindo
           </button>
         </div>
 

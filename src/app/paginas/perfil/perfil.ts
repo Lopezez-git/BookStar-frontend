@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router'; // ← Adicione RouterLink aqui
 
 interface Livro {
   id: number;
@@ -12,11 +12,10 @@ interface Livro {
   status: string;
 }
 
-
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink], // ← Adicione RouterLink aqui
   templateUrl: './perfil.html',
   styleUrls: ['./perfil.css']
 })
@@ -98,32 +97,30 @@ export class Perfil implements OnInit {
   }
 
   trocarFoto(event: any) {
-  const arquivo = event.target.files[0];
-  if (!arquivo) return;
+    const arquivo = event.target.files[0];
+    if (!arquivo) return;
 
-  const formData = new FormData();
-  formData.append('imagem', arquivo);
+    const formData = new FormData();
+    formData.append('imagem', arquivo);
 
-  // Pré-visualização da imagem
-  const leitor = new FileReader();
-  leitor.onload = () => (this.previewImagem = leitor.result as string);
-  leitor.readAsDataURL(arquivo);
+    // Pré-visualização da imagem
+    const leitor = new FileReader();
+    leitor.onload = () => (this.previewImagem = leitor.result as string);
+    leitor.readAsDataURL(arquivo);
 
-  this.http.put('http://localhost:5010/usuario/perfil/capa', formData).subscribe({
-    next: (res: any) => {
-      console.log("Upload OK:", res);
+    this.http.put('http://localhost:5010/usuario/perfil/capa', formData).subscribe({
+      next: (res: any) => {
+        console.log("Upload OK:", res);
 
-      // Atualiza a foto que veio do backend
-      this.perfilImagem = res.usuario.imagem_url;
+        // Atualiza a foto que veio do backend
+        this.perfilImagem = res.usuario.imagem_url;
 
-      alert("Foto atualizada com sucesso!");
-    },
-    error: (err) => {
-      console.error("Erro no upload:", err);
-      alert("Erro ao enviar foto.");
-    }
-  });
-}
-
-
+        alert("Foto atualizada com sucesso!");
+      },
+      error: (err) => {
+        console.error("Erro no upload:", err);
+        alert("Erro ao enviar foto.");
+      }
+    });
+  }
 }
