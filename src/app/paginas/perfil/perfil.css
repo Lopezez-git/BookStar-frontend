@@ -150,5 +150,16 @@
 }
 
 .stars {
-  color: gold;
+  display: flex;
+  gap: 2px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.stars span {
+  color: #444; /* Estrela vazia - cinza escuro */
+}
+
+.stars span.filled {
+  color: gold; /* Estrela preenchida - dourado */
 }

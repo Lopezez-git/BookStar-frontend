@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router'; // ← Adicione RouterLink aqui
+import { Router, RouterLink } from '@angular/router';
 
 interface Livro {
   id: number;
@@ -15,7 +15,7 @@ interface Livro {
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [CommonModule, RouterLink], // ← Adicione RouterLink aqui
+  imports: [CommonModule, RouterLink],
   templateUrl: './perfil.html',
   styleUrls: ['./perfil.css']
 })
@@ -77,20 +77,31 @@ export class Perfil implements OnInit {
 
     this.http.get<any>(url).subscribe({
       next: (res) => {
+        console.log('📦 Resposta completa do backend:', res);
+        
         const lista = res.livros || [];
+        console.log('📚 Lista de livros bruta:', lista);
 
-        this.livrosFiltrados = lista.map((l: any) => ({
-          id: l.id,
-          titulo: l.titulo,
-          autor: l.autores,
-          capa: `http://localhost:5010${l.capa_url}`,
-          avaliacao: l.avaliacao || 0,
-          status: l.status
-        }));
+        this.livrosFiltrados = lista.map((l: any) => {
+          console.log(`📖 Livro: ${l.titulo}`);
+          console.log(`   ⭐ Avaliação recebida:`, l.avaliacao);
+          console.log(`   ⭐ Tipo:`, typeof l.avaliacao);
+          
+          return {
+            id: l.id,
+            titulo: l.titulo,
+            autor: l.autores,
+            capa: `http://localhost:5010${l.capa_url}`,
+            avaliacao: l.avaliacao || 0,
+            status: l.status
+          };
+        });
+
+        console.log('✅ Livros processados:', this.livrosFiltrados);
       },
 
       error: (err) => {
-        console.error("Erro ao carregar livros:", err);
+        console.error("❌ Erro ao carregar livros:", err);
         this.livrosFiltrados = [];
       }
     });
