@@ -1,0 +1,43 @@
+<app-auth-header></app-auth-header>
+
+<main>
+  <div class="seguindo-container">
+    <div class="seguindo-card">
+
+      <!-- ESQUERDA (mesmo layout do perfil) -->
+      <div class="seguindo-left">
+        <div class="foto-wrapper">
+          <img [src]="previewImagem || fotoUsuario || 'assets/default-avatar.png'">
+
+          <input type="file" accept="image/*" (change)="trocarFoto($event)">
+        </div>
+
+        <h2 class="nome-user">{{ nomeUsuario }}</h2>
+
+        <p class="seguidores">
+          Seguidores: {{ seguidores }} / Seguindo {{ seguindo }}
+        </p>
+      </div>
+
+      <!-- DIREITA -->
+      <div class="seguindo-right">
+        <h2 class="titulo-seguindo">Seguindo</h2>
+
+        <div class="lista-seguidos">
+
+          <div class="seguido" *ngFor="let u of listaSeguindo">
+            <img [src]="u.avatar || 'assets/default-avatar.png'">
+
+            <span class="nome-seguido">{{ u.nome }}</span>
+
+            <button class="btn-remover" (click)="deixarDeSeguir(u.nome)">
+              ✕
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

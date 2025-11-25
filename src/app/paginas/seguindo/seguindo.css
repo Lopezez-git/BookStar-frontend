@@ -1,0 +1,237 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container Principal - CENTRALIZADO ABAIXO DO HEADER */
+.seguindo-container {
+  min-height: 100vh;
+  background-color: #EEEEDD;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ← ALINHA NO TOPO */
+  padding-top: 150px; /* ← ESPAÇO DO HEADER */
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+}
+
+/* Background Pattern */
+.seguindo-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/background-star.png');
+  background-repeat: repeat;  
+  background-size: cover;     
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Card Principal */
+.seguindo-card {
+  background: #18332a;
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  width: 90%;
+  max-width: 1100px;
+  gap: 30px;
+  min-height: 340px;
+  position: relative; /* FICA ACIMA DO BACKGROUND */
+  z-index: 1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* COLUNA ESQUERDA - IGUAL AO PERFIL */
+.seguindo-left {
+  width: 280px;
+  text-align: center;
+  color: #fff;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ← CENTRALIZA VERTICALMENTE */
+  padding: 40px 0; /* ← ADICIONA ESPAÇO EXTRA */
+}
+
+.foto-wrapper {
+  position: relative;
+  cursor: pointer;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  margin: 0 auto 20px; /* ← MUDEI DE 30px AUTO 15px */
+}
+
+.foto-wrapper input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.foto-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nome-user {
+  font-size: 22px;
+  margin: 0 0 10px 0; /* ← AJUSTADO */
+}
+
+.seguidores {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* COLUNA DIREITA */
+.seguindo-right {
+  flex: 1;
+  color: #fff;
+  min-width: 0;
+}
+
+.titulo-seguindo {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* LISTA DE SEGUIDOS */
+.lista-seguidos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.seguido {
+  background: #142820;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.seguido:hover {
+  transform: translateX(5px);
+  background: #1a3228;
+}
+
+.seguido img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.nome-seguido {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-remover {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #ff6b6b;
+  font-size: 22px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.btn-remover:hover {
+  background: rgba(255, 107, 107, 0.2);
+  transform: scale(1.1);
+}
+
+.btn-remover:active {
+  transform: scale(0.95);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .seguindo-container {
+    padding-top: 120px;
+  }
+
+  .seguindo-card {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .seguindo-left {
+    width: 100%;
+  }
+
+  .foto-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+
+  .nome-user {
+    font-size: 20px;
+  }
+
+  .titulo-seguindo {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .seguido {
+    padding: 12px 15px;
+  }
+
+  .seguido img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .nome-seguido {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seguindo-card {
+    padding: 25px 15px;
+  }
+
+  .foto-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+
+  .nome-user {
+    font-size: 18px;
+  }
+}

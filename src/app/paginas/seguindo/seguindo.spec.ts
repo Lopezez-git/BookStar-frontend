@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthHeaderComponent } from './auth-header';
+import { SeguindoComponent } from './seguindo';
 
-describe('AuthHeader', () => {
-  let component: AuthHeaderComponent;
-  let fixture: ComponentFixture<AuthHeaderComponent>;
+describe('Seguindo', () => {
+  let component: SeguindoComponent;
+  let fixture: ComponentFixture<SeguindoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuthHeaderComponent]
+      imports: [SeguindoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AuthHeaderComponent);
+    fixture = TestBed.createComponent(SeguindoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

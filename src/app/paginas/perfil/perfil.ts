@@ -12,6 +12,7 @@ interface Livro {
   status: string;
 }
 
+
 @Component({
   selector: 'app-perfil',
   standalone: true,
