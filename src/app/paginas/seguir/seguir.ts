@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthHeaderComponent } from '../../auth-header/auth-header';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 interface Usuario {
   id: number;
-  nome: string;
+  nomeUsuario: string;
   username: string;
-  fotoPerfil: string;
+  perfilImagem: string;
   seguindo: boolean;
 }
 
@@ -21,85 +22,105 @@ interface UsuarioLogado {
 @Component({
   selector: 'app-seguir',
   standalone: true,
-  imports: [CommonModule, AuthHeaderComponent],
+  imports: [CommonModule, AuthHeaderComponent, HttpClientModule],
   templateUrl: './seguir.html',
   styleUrls: ['./seguir.css']
 })
 export class SeguirComponent implements OnInit {
-  
+
   usuarioLogado: UsuarioLogado | null = null;
+
   sugestoes: Usuario[] = [];
   carregando: boolean = true;
   erro: string = '';
 
-  constructor(
-    // private authService: AuthService, // ← Descomente quando criar o serviço
-    // private usuarioService: UsuarioService // ← Descomente quando criar o serviço
-  ) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.carregarUsuarioLogado();
+    this.carregarPerfil();
     this.carregarSugestoes();
   }
 
-  carregarUsuarioLogado(): void {
-    // OPÇÃO 1: Buscar do AuthService (se você guarda os dados do usuário lá)
- 
-    // OPÇÃO 2: Buscar do localStorage (se você salva os dados lá após o login)
-    const usuarioStorage = localStorage.getItem('usuario');
-    if (usuarioStorage) {
-      this.usuarioLogado = JSON.parse(usuarioStorage);
-    }
+  carregarPerfil() {
+  const token = localStorage.getItem('token');
 
-    // OPÇÃO 3: Fazer uma chamada HTTP para pegar dados atualizados
+  if (!token) {
+    console.error("Nenhum token encontrado no localStorage!");
+    this.erro = 'Usuário não autenticado.';
+    this.carregando = false;
+    return;
   }
+
+  this.http.get<any>('http://localhost:5010/usuario/perfil', {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+  .subscribe({
+    next: (res) => {
+      console.log("Resposta da API:", res);
+
+      this.usuarioLogado = {
+        id: res.id,
+        nome: res.nome,
+        username: res.username ?? '',
+        fotoPerfil: res.imagem_perfil
+          ? `http://localhost:5010/storage/perfil/${res.imagem_perfil}`
+          : '/Default_pfp.jpg'
+      };
+
+      this.carregando = false;
+    },
+    error: (err) => {
+      console.error('Erro ao carregar perfil:', err);
+      this.erro = 'Erro ao carregar perfil (token inválido ou expirado).';
+      this.carregando = false;
+    }
+  });
+}
+
 
   carregarSugestoes(): void {
     this.carregando = true;
-    
-    // Implementar chamada ao backend
-
 
     setTimeout(() => {
       this.sugestoes = [
         {
           id: 1,
-          nome: 'Allan Lopes',
+          nomeUsuario: 'Allan Lopes',
           username: '@allanlopes',
-          fotoPerfil: '/Allan Lopes.jpg',
+          perfilImagem: '/Allan Lopes.jpg',
           seguindo: false
         },
         {
           id: 2,
-          nome: 'Lethicia Nobre',
+          nomeUsuario: 'Lethicia Nobre',
           username: '@lethicianobre',
-          fotoPerfil: '/Lethicia-Nobre.png',
+          perfilImagem: '/Lethicia-Nobre.png',
           seguindo: false
         },
         {
           id: 3,
-          nome: 'Ana Carolina',
+          nomeUsuario: 'Ana Carolina',
           username: '@anacarolina',
-          fotoPerfil: '/Ana Carolina.jpg',
+          perfilImagem: '/Ana Carolina.jpg',
           seguindo: false
         },
         {
           id: 4,
-          nome: 'Thalyta Cristina',
+          nomeUsuario: 'Thalyta Cristina',
           username: '@thalytacristina',
-          fotoPerfil: '/Thalyta Cristina.jpg',
+          perfilImagem: '/Thalyta Cristina.jpg',
           seguindo: false
         }
       ];
+
       this.carregando = false;
     }, 500);
   }
 
   seguirUsuario(usuario: Usuario): void {
-    // Implementar chamada ao backend
-
-
     usuario.seguindo = true;
-    console.log(`Seguindo ${usuario.nome}`);
+    console.log(`Seguindo ${usuario.nomeUsuario}`);
   }
 }
