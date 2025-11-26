@@ -40,7 +40,7 @@ export class LivroComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -99,7 +99,6 @@ export class LivroComponent implements OnInit {
     const token = localStorage.getItem('token');
     if (!token) { alert('Você precisa estar logado!'); return; }
 
-    // Corpo do POST/PUT: só envia status se o usuário selecionou
     const body: any = {
       avaliacao: this.avaliacaoUsuario,
       comentario: this.comentarioUsuario
@@ -108,35 +107,34 @@ export class LivroComponent implements OnInit {
 
     const tituloEncoded = encodeURIComponent(this.livro.titulo);
 
-    // Primeiro tenta POST
-    this.http.post(
-      `http://localhost:5010/usuario/biblioteca/post/${tituloEncoded}`,
-      body,
-      { headers: { Authorization: `Bearer ${token}` }}
-    ).subscribe({
-      next: () => {
-        alert('Livro adicionado ou atualizado na biblioteca!');
-        this.livroNaBiblioteca = true;
-      },
-      error: (err) => {
-        if (err.status === 409) {
-          // Se já existe, faz PUT
-          this.http.put(
-            `http://localhost:5010/usuario/biblioteca/atualizar/${tituloEncoded}`,
-            body,
-            { headers: { Authorization: `Bearer ${token}` }}
-          ).subscribe({
-            next: () => alert('Livro atualizado com sucesso!'),
-            error: e => alert(e.error?.erro || 'Erro ao atualizar livro.')
-          });
-        } else {
+    // 🔥 AQUI ESTÁ A CORREÇÃO:
+    if (this.livroNaBiblioteca) {
+      // Já existe → PUT direto
+      this.http.put(
+        `http://localhost:5010/usuario/biblioteca/atualizar/${tituloEncoded}`,
+        body,
+        { headers: { Authorization: `Bearer ${token}` } }
+      ).subscribe({
+        next: () => alert('Livro atualizado com sucesso!'),
+        error: e => alert(e.error?.erro || 'Erro ao atualizar livro.')
+      });
+
+    } else {
+      // Não existe → POST
+      this.http.post(
+        `http://localhost:5010/usuario/biblioteca/post/${tituloEncoded}`,
+        body,
+        { headers: { Authorization: `Bearer ${token}` } }
+      ).subscribe({
+        next: () => {
+          alert('Livro adicionado à biblioteca!');
+          this.livroNaBiblioteca = true;
+        },
+        error: (err) => {
           alert(err.error?.erro || 'Erro ao adicionar livro.');
         }
-      }
-    });
+      });
+    }
   }
 
-  voltar(): void {
-    this.router.navigate(['/livros']);
-  }
 }
