@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
-// Importa JSON local
 import livrosData from '../../../assets/livros.json';
 
 interface Livro {
@@ -32,15 +30,11 @@ export class LivroComponent implements OnInit {
   carregando = true;
   erro = '';
 
-  // Avaliação do usuário
   avaliacaoUsuario = 0;
   hoverRating = 0;
   comentarioUsuario = '';
-  
-  // Status do livro (apenas local até salvar)
   statusLocal: StatusLivro = '';
   livroNaBiblioteca = false;
-  statusAtualNoBanco: StatusLivro = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -52,13 +46,12 @@ export class LivroComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.buscarDetalhesLivro(id);
-      this.carregarStatusLivro();
+      this.carregarInfoDoBanco(id);
     }
   }
 
   buscarDetalhesLivro(id: string): void {
     this.carregando = true;
-
     const livroEncontrado = (livrosData as Livro[]).find(l => l.id === id);
 
     if (livroEncontrado) {
@@ -70,190 +63,74 @@ export class LivroComponent implements OnInit {
     }
   }
 
-  // 🔥 Carregar status do livro da biblioteca
-  carregarStatusLivro(): void {
+  carregarInfoDoBanco(id: string): void {
     const token = localStorage.getItem('token');
     if (!token) return;
 
     this.http.get<any>('http://localhost:5010/usuario/biblioteca', {
       headers: { Authorization: `Bearer ${token}` }
     }).subscribe({
-      next: (biblioteca) => {
-        if (!this.livro) return;
-
-        const livroNaBib = biblioteca.find((item: any) => 
-          item.id_livro == this.livro!.id
-        );
-
-        if (livroNaBib) {
+      next: (lista) => {
+        const item = lista.find((obj: any) => obj.titulo === this.livro?.titulo);
+        if (item) {
           this.livroNaBiblioteca = true;
-          this.statusAtualNoBanco = livroNaBib.status || '';
-          this.statusLocal = livroNaBib.status || '';
-          this.avaliacaoUsuario = livroNaBib.avaliacao || 0;
-          this.comentarioUsuario = livroNaBib.comentario || '';
+          this.statusLocal = item.status || '';
+          this.avaliacaoUsuario = item.avaliacao || 0;
+          this.comentarioUsuario = item.comentario || '';
         }
       },
-      error: (err) => {
-        console.log('Erro ao carregar biblioteca:', err);
-      }
+      error: (err) => console.error('Erro ao carregar biblioteca:', err)
     });
   }
 
-  // Getters para verificar status
-  get isQueroLer(): boolean {
-    return this.statusLocal === 'quero ler';
+  // ⬅ Aqui está a correção principal: alterna corretamente
+  marcarStatus(status: StatusLivro): void {
+    this.statusLocal = this.statusLocal === status ? '' : status;
   }
 
-  get isEstouLendo(): boolean {
-    return this.statusLocal === 'estou lendo';
-  }
+  getRatingArray(): number[] { return [1, 2, 3, 4, 5]; }
+  setRating(r: number): void { this.avaliacaoUsuario = r; }
+  setHoverRating(r: number): void { this.hoverRating = r; }
+  resetHoverRating(): void { this.hoverRating = 0; }
 
-  get isConcluido(): boolean {
-    return this.statusLocal === 'concluido';
-  }
-
-  // Avaliação
-  setRating(rating: number): void {
-    this.avaliacaoUsuario = rating;
-  }
-
-  setHoverRating(rating: number): void {
-    this.hoverRating = rating;
-  }
-
-  resetHoverRating(): void {
-    this.hoverRating = 0;
-  }
-
-  getRatingArray(): number[] {
-    return [1, 2, 3, 4, 5];
-  }
-
-  // 🔥 Marcar status (local ou no banco)
-  marcarStatus(novoStatus: StatusLivro): void {
-    if (this.livroNaBiblioteca) {
-      // Se já está no banco, atualiza diretamente
-      this.atualizarStatusNoBanco(novoStatus);
-    } else {
-      // Se não está no banco, apenas marca localmente
-      this.statusLocal = this.statusLocal === novoStatus ? '' : novoStatus;
-      console.log('Status local alterado:', this.statusLocal);
-    }
-  }
-
-  // 🔥 Atualizar status diretamente no banco (quando já existe)
-  atualizarStatusNoBanco(novoStatus: StatusLivro): void {
+  atualizarLivroNoBanco(): void {
     if (!this.livro) return;
 
     const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Você precisa estar logado!');
-      return;
-    }
+    if (!token) { alert('Você precisa estar logado!'); return; }
 
-    this.http.put(
-      `http://localhost:5010/usuario/biblioteca/status/${this.livro.id}`,
-      { status: novoStatus },
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      }
-    ).subscribe({
-      next: (res: any) => {
-        this.statusLocal = novoStatus;
-        this.statusAtualNoBanco = novoStatus;
-        console.log('Status atualizado no banco:', res);
-        
-        const mensagens: Record<StatusLivro, string> = {
-          'quero ler': 'adicionado à lista "Quero Ler"',
-          'estou lendo': 'marcado como "Estou Lendo"',
-          'concluido': 'marcado como concluído',
-          '': ''
-        };
-        
-        alert(`Livro ${mensagens[novoStatus]}!`);
-      },
-      error: (err) => {
-        console.error('Erro ao atualizar status:', err);
-        alert(err.error?.erro || 'Erro ao atualizar status do livro.');
-      }
-    });
-  }
-
-  // 🔥 SALVAR AVALIAÇÃO (adiciona ao banco com todos os dados)
-  salvarAvaliacao(): void {
-    if (!this.livro) {
-      alert("Erro: livro não carregado!");
-      return;
-    }
-
-    if (this.avaliacaoUsuario === 0) {
-      alert('Selecione uma avaliação!');
-      return;
-    }
-
-    const token = localStorage.getItem("token");
-    if (!token) {
-      alert("Você precisa estar logado para salvar.");
-      return;
-    }
-
-    const body = {
-      comentario: this.comentarioUsuario,
-      avaliacao: this.avaliacaoUsuario
+    // Corpo do POST/PUT: só envia status se o usuário selecionou
+    const body: any = {
+      avaliacao: this.avaliacaoUsuario,
+      comentario: this.comentarioUsuario
     };
+    if (this.statusLocal) body.status = this.statusLocal;
 
     const tituloEncoded = encodeURIComponent(this.livro.titulo);
 
+    // Primeiro tenta POST
     this.http.post(
       `http://localhost:5010/usuario/biblioteca/post/${tituloEncoded}`,
       body,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }
+      { headers: { Authorization: `Bearer ${token}` }}
     ).subscribe({
-      next: (res: any) => {
-        console.log("Resposta completa do backend:", res);
+      next: () => {
+        alert('Livro adicionado ou atualizado na biblioteca!');
         this.livroNaBiblioteca = true;
-        
-        const idLivroNoBanco = res.livro;
-        console.log("ID do livro no banco:", idLivroNoBanco);
-        
-        // Se o usuário marcou algum status, atualiza
-        if (this.statusLocal && idLivroNoBanco) {
-          this.http.put(
-            `http://localhost:5010/usuario/biblioteca/status/${idLivroNoBanco}`,
-            { status: this.statusLocal },
-            { headers: { Authorization: `Bearer ${token}` }}
-          ).subscribe({
-            next: () => {
-              this.statusAtualNoBanco = this.statusLocal;
-              const mensagens: Record<StatusLivro, string> = {
-                'quero ler': 'e adicionado à lista "Quero Ler"',
-                'estou lendo': 'e marcado como "Estou Lendo"',
-                'concluido': 'e marcado como concluído',
-                '': ''
-              };
-              alert(`Avaliação salva ${mensagens[this.statusLocal]}!`);
-            },
-            error: (err) => {
-              console.error('Erro ao atualizar status:', err);
-              console.error('Detalhes do erro:', err.error);
-              alert("Avaliação salva, mas houve erro ao atualizar o status.");
-            }
-          });
-        } else {
-          alert("Avaliação salva com sucesso!");
-        }
       },
       error: (err) => {
-        console.error("Erro ao salvar avaliação:", err);
-
-        if (err.error?.erro === "Livro já está na biblioteca do usuário.") {
-          alert("Este livro já está na sua biblioteca!");
+        if (err.status === 409) {
+          // Se já existe, faz PUT
+          this.http.put(
+            `http://localhost:5010/usuario/biblioteca/atualizar/${tituloEncoded}`,
+            body,
+            { headers: { Authorization: `Bearer ${token}` }}
+          ).subscribe({
+            next: () => alert('Livro atualizado com sucesso!'),
+            error: e => alert(e.error?.erro || 'Erro ao atualizar livro.')
+          });
         } else {
-          alert(err.error?.erro || "Erro ao salvar avaliação.");
+          alert(err.error?.erro || 'Erro ao adicionar livro.');
         }
       }
     });

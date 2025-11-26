@@ -1,61 +1,40 @@
 <div class="pagina-detalhes">
-  <!-- Botão de Voltar -->
   <button class="btn-voltar" (click)="voltar()">← Voltar</button>
 
-  <!-- Loading e Erro -->
   <div *ngIf="carregando" class="loading">Carregando...</div>
   <div *ngIf="erro" class="erro">{{ erro }}</div>
 
-  <!-- Conteúdo do Livro -->
   <div *ngIf="!carregando && !erro && livro" class="conteudo">
-    
-    <!-- Seção Principal -->
+
     <div class="secao-principal">
-      
-      <!-- Capa do Livro -->
       <div class="capa-container">
         <img [src]="livro.capa_livro || 'assets/placeholder-book.jpg'" 
              [alt]="livro.titulo" class="capa-livro">
       </div>
 
-      <!-- Informações e Ações -->
       <div class="info-container">
         <h1 class="titulo-livro">{{ livro.titulo }}</h1>
 
-        <!-- Status e Ações -->
         <div class="status-icons">
-          <!-- Olho = Quero Ler -->
-          <button 
-            class="icon-btn" 
-            [class.active]="isQueroLer"
-            (click)="marcarStatus('quero ler')"
-            title="Quero Ler">
+          <button class="icon-btn" [class.active]="statusLocal === 'quero ler'" 
+                  (click)="marcarStatus('quero ler')" title="Quero Ler">
             <img src="olho.png" alt="Quero Ler" class="icon-img">
-            <span>{{ isQueroLer ? 'Quero Ler ✓' : 'Quero Ler' }}</span>
+            <span>{{ statusLocal === 'quero ler' ? 'Quero Ler ✓' : 'Quero Ler' }}</span>
           </button>
 
-          <!-- Coração = Estou Lendo -->
-          <button 
-            class="icon-btn" 
-            [class.active]="isEstouLendo"
-            (click)="marcarStatus('estou lendo')"
-            title="Estou Lendo">
+          <button class="icon-btn" [class.active]="statusLocal === 'estou lendo'" 
+                  (click)="marcarStatus('estou lendo')" title="Estou Lendo">
             <img src="coracao (1).png" alt="Estou Lendo" class="icon-img">
-            <span>{{ isEstouLendo ? 'Estou Lendo ✓' : 'Estou Lendo' }}</span>
+            <span>{{ statusLocal === 'estou lendo' ? 'Estou Lendo ✓' : 'Estou Lendo' }}</span>
           </button>
 
-          <!-- Relógio = Concluído -->
-          <button 
-            class="icon-btn" 
-            [class.active]="isConcluido"
-            (click)="marcarStatus('concluido')"
-            title="Concluído">
+          <button class="icon-btn" [class.active]="statusLocal === 'concluido'" 
+                  (click)="marcarStatus('concluido')" title="Concluído">
             <img src="relogio-tres.png" alt="Concluído" class="icon-img">
-            <span>{{ isConcluido ? 'Concluído ✓' : 'Marcar Concluído' }}</span>
+            <span>{{ statusLocal === 'concluido' ? 'Concluído ✓' : 'Marcar Concluído' }}</span>
           </button>
         </div>
 
-        <!-- Avaliação -->
         <div class="avaliacao-section">
           <h3>Sua Avaliação</h3>
           <div class="estrelas">
@@ -70,7 +49,6 @@
           </div>
         </div>
 
-        <!-- Descrição -->
         <div class="descricao-section">
           <h3>Sobre o Livro</h3>
           <p class="descricao">{{ livro.descricao }}</p>
@@ -78,24 +56,20 @@
       </div>
     </div>
 
-    <!-- Seção de Comentário -->
     <div class="secao-comentario">
       <h3>Seu Comentário</h3>
       <textarea [(ngModel)]="comentarioUsuario"
                 placeholder="Escreva seu comentário aqui..."
                 rows="5"
                 class="comentario-input"></textarea>
-      <button class="btn-salvar" (click)="salvarAvaliacao()">Salvar Avaliação</button>
+      <button class="btn-salvar" (click)="atualizarLivroNoBanco()">Salvar Alterações</button>
     </div>
 
-    <!-- Informações do Autor -->
     <div class="secao-autor">
       <h2>Sobre o Autor</h2>
       <div class="autor-info">
         <div class="autor-foto">
-          <div class="placeholder-foto">
-            <img class="autor-foto" [src]="livro.foto_autor" alt="">
-          </div>
+          <img class="autor-foto" [src]="livro.foto_autor" alt="">
         </div>
         <div class="autor-texto">
           <h3>{{ livro.autor }}</h3>
@@ -103,5 +77,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>

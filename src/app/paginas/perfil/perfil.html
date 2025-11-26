@@ -8,7 +8,7 @@
           <input type="file" accept="image/*" (change)="trocarFoto($event)">
         </div>
 
-        <h2 class="nome-user">{{ usernameUsario }}</h2>
+        <h2 class="nome-user">{{ usernameUsuario }}</h2>
         <p class="seguidores">
           Seguidores: {{ seguidores }} / Seguindo {{ seguindo }}
         </p>
@@ -38,8 +38,8 @@
         <!-- LISTA LIVROS -->
         <div class="lista-livros">
 
-          <div class="livro" *ngFor="let livro of livrosFiltrados">
-            <img [src]="livro.capa" [alt]="livro.titulo">
+          <div  class="livro" *ngFor="let livro of livrosFiltrados">
+            <img [src]="livro.capa" [routerLink]="['/livro', livro.id]" [alt]="livro.titulo">
 
             <div class="info-livro">
               <h3>{{ livro.titulo }}</h3>
@@ -50,7 +50,7 @@
                 </span>
               </div>
 
-              <!-- 🔥 COMENTÁRIO ADICIONADO -->
+              <!-- COMENTÁRIO ADICIONADO -->
               <p class="comentario" *ngIf="livro.comentario">
                 "{{ livro.comentario }}"
               </p>
