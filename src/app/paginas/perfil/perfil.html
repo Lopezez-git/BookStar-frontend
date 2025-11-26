@@ -38,7 +38,7 @@
         <!-- LISTA LIVROS -->
         <div class="lista-livros">
 
-          <div class="livro" *ngFor="let livro of livrosFiltrados">
+          <div [routerLink]="['/livro', livro.id]" class="livro" *ngFor="let livro of livrosFiltrados">
             <img [src]="livro.capa" [alt]="livro.titulo">
 
             <div class="info-livro">
@@ -50,7 +50,7 @@
                 </span>
               </div>
 
-              <!-- 🔥 COMENTÁRIO ADICIONADO -->
+              <!-- COMENTÁRIO ADICIONADO -->
               <p class="comentario" *ngIf="livro.comentario">
                 "{{ livro.comentario }}"
               </p>

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 
+// Importa o JSON com todos os livros
+import livrosJson from '../../../assets/livros.json';
+
 interface Livro {
   id: number;
   titulo: string;
@@ -89,16 +92,27 @@ export class Perfil implements OnInit {
       next: (res) => {
         const lista = res.livros || res || [];
 
-        this.livrosFiltrados = lista.map((l: any) => ({
-          id: l.livroId,          // <-- CORREÇÃO
-          titulo: l.titulo,
-          autor: l.autores,
-          capa: `http://localhost:5010${l.capa_url}`,
-          avaliacao: l.avaliacao || 0,
-          comentario: l.comentario || '',
-          status: l.status
-        }));
+        // 🔥 Aqui está o MATCH PELO TÍTULO para pegar o ID correto do JSON!
+        this.livrosFiltrados = lista.map((l: any) => {
 
+          const livroJson = livrosJson.find(
+            x => x.titulo.trim().toLowerCase() === l.titulo.trim().toLowerCase()
+          );
+
+          if (!livroJson) {
+            console.warn("Livro não encontrado no JSON:", l.titulo);
+          }
+
+          return {
+            id: livroJson?.id ?? null,   // <-- USA O ID DO JSON
+            titulo: l.titulo,
+            autor: l.autores,
+            capa: `http://localhost:5010${l.capa_url}`,
+            avaliacao: l.avaliacao || 0,
+            comentario: l.comentario || '',
+            status: l.status
+          };
+        });
 
         console.log('Livros filtrados:', this.livrosFiltrados);
       },
@@ -109,7 +123,6 @@ export class Perfil implements OnInit {
     });
   }
 
-  // ⛔ FUNÇÃO DEFINITIVA DE REMOVER LIVRO DA BIBLIOTECA
   removerLivro(livro: Livro) {
     if (!confirm(`Tem certeza que deseja remover "${livro.titulo}"?`)) {
       return;
