@@ -38,8 +38,8 @@
         <!-- LISTA LIVROS -->
         <div class="lista-livros">
 
-          <div [routerLink]="['/livro', livro.id]" class="livro" *ngFor="let livro of livrosFiltrados">
-            <img [src]="livro.capa" [alt]="livro.titulo">
+          <div  class="livro" *ngFor="let livro of livrosFiltrados">
+            <img [src]="livro.capa" [routerLink]="['/livro', livro.id]" [alt]="livro.titulo">
 
             <div class="info-livro">
               <h3>{{ livro.titulo }}</h3>

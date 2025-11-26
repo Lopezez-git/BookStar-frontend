@@ -30,7 +30,6 @@ export class LivroComponent implements OnInit {
   carregando = true;
   erro = '';
 
-  // Dados do usuário para este livro
   avaliacaoUsuario = 0;
   hoverRating = 0;
   comentarioUsuario = '';
@@ -72,7 +71,7 @@ export class LivroComponent implements OnInit {
       headers: { Authorization: `Bearer ${token}` }
     }).subscribe({
       next: (lista) => {
-        const item = lista.find((obj: any) => obj.titulo == this.livro?.titulo);
+        const item = lista.find((obj: any) => obj.titulo === this.livro?.titulo);
         if (item) {
           this.livroNaBiblioteca = true;
           this.statusLocal = item.status || '';
@@ -84,28 +83,28 @@ export class LivroComponent implements OnInit {
     });
   }
 
-  // STATUS LOCAL
+  // ⬅ Aqui está a correção principal: alterna corretamente
   marcarStatus(status: StatusLivro): void {
     this.statusLocal = this.statusLocal === status ? '' : status;
   }
 
-  // Avaliação de estrelas
   getRatingArray(): number[] { return [1, 2, 3, 4, 5]; }
   setRating(r: number): void { this.avaliacaoUsuario = r; }
   setHoverRating(r: number): void { this.hoverRating = r; }
   resetHoverRating(): void { this.hoverRating = 0; }
 
-  // Adicionar ou atualizar livro no banco usando título
   atualizarLivroNoBanco(): void {
     if (!this.livro) return;
+
     const token = localStorage.getItem('token');
     if (!token) { alert('Você precisa estar logado!'); return; }
 
-    const body = {
-      status: this.statusLocal,
+    // Corpo do POST/PUT: só envia status se o usuário selecionou
+    const body: any = {
       avaliacao: this.avaliacaoUsuario,
       comentario: this.comentarioUsuario
     };
+    if (this.statusLocal) body.status = this.statusLocal;
 
     const tituloEncoded = encodeURIComponent(this.livro.titulo);
 
@@ -121,7 +120,7 @@ export class LivroComponent implements OnInit {
       },
       error: (err) => {
         if (err.status === 409) {
-          // Se já existe, faz PUT com título
+          // Se já existe, faz PUT
           this.http.put(
             `http://localhost:5010/usuario/biblioteca/atualizar/${tituloEncoded}`,
             body,
